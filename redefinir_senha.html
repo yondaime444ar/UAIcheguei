@@ -240,6 +240,8 @@
                 return;
             }
 
+            document.getElementById("etapaEmail").hidden = true;
+            document.getElementById("etapaCodigo").hidden = true;
             document.getElementById("etapaSenha").hidden = false;
             mensagem.textContent = "Código confirmado. Agora crie sua nova senha.";
             document.getElementById("senha").focus();
