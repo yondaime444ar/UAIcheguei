@@ -34,14 +34,23 @@
         .caixa-branca {
             position: relative;
             background-color: white;
-            padding: 40px;
+            padding: 56px 40px 40px;
             border-radius: 20px;
-            width: 500px;
+            width: min(460px, calc(100% - 32px));
             text-align: center;
             color: #333;
-            font-size: 0.9em;
-            min-height: 650px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 0.95em;
+            box-shadow: 0 12px 32px rgba(55, 31, 12, 0.22);
+        }
+
+        .caixa-branca h1 {
+            margin: 8px 0 12px;
+            color: #4f3011;
+            font-size: 1.8em;
+        }
+
+        .caixa-branca p {
+            line-height: 1.5;
         }
 
         .campo-form {
@@ -60,14 +69,22 @@
 
         .buton-entrar {
             background-color: #e15800;
-            padding: 12px;
+            padding: 11px 18px;
             border: none;
-            border-radius: 20px;
+            border-radius: 12px;
             width: 100%;
+            min-height: 46px;
             text-align: center;
             color: white;
-            margin-bottom: 25px;
+            margin: 4px 0 18px;
             cursor: pointer;
+            font: inherit;
+            transition: background-color 160ms ease, transform 160ms ease;
+        }
+
+        .buton-entrar h2 {
+            margin: 0;
+            font-size: 1rem;
         }
 
         .buton-entrar:hover {
@@ -75,7 +92,7 @@
         }
 
         .buton-entrar:active {
-            transform: translateY(4px);
+            transform: translateY(1px);
         }
 
         .voltar {
@@ -100,6 +117,10 @@
 
         .codigo {
             margin-top: 5px;
+        }
+
+        [hidden] {
+            display: none !important;
         }
 
     </style>
@@ -127,56 +148,121 @@
 
             <br>
 
-            <p>
-                Digite seu e-mail:
-            </p>
+            <div id="etapaEmail">
+                <p>Digite seu e-mail:</p>
+                <input
+                    type="email"
+                    id="email"
+                    class="campo-form"
+                    placeholder="Digite seu e-mail"
+                    required
+                >
+                <button
+                    type="button"
+                    class="buton-entrar"
+                    onclick="enviarCodigo()"
+                >
+                    <h2>Enviar código</h2>
+                </button>
+            </div>
 
-            <input
-                type="email"
-                id="email"
-                class="campo-form"
-                placeholder="Digite seu e-mail"
-            >
+            <div id="etapaCodigo" hidden>
+                <p>Digite o código enviado para seu e-mail:</p>
+                <input
+                    type="text"
+                    id="codigo"
+                    class="campo-form codigo"
+                    placeholder="Digite o código"
+                    inputmode="numeric"
+                >
+                <button
+                    type="button"
+                    class="buton-entrar"
+                    onclick="verificarCodigo()"
+                >
+                    <h2>Verificar código</h2>
+                </button>
+            </div>
 
-            <p>
-                Digite o código enviado para seu e-mail:
-            </p>
+            <div id="etapaSenha" hidden>
+                <p>Digite sua nova senha:</p>
+                <input
+                    type="password"
+                    id="senha"
+                    class="campo-form"
+                    placeholder="Digite sua nova senha"
+                >
+                <input
+                    type="password"
+                    id="confirmarSenha"
+                    class="campo-form"
+                    placeholder="Confirme sua nova senha"
+                >
+                <button
+                    type="button"
+                    class="buton-entrar"
+                    onclick="redefinirSenha()"
+                >
+                    <h2>Salvar nova senha</h2>
+                </button>
+            </div>
 
-            <input
-                type="text"
-                id="codigo"
-                class="campo-form codigo"
-                placeholder="Digite o código"
-            >
-
-            <p>
-                Digite sua nova senha:
-            </p>
-
-            <input
-                type="password"
-                id="senha"
-                class="campo-form"
-                placeholder="Digite sua nova senha"
-            >
-
-            <input
-                type="password"
-                id="confirmarSenha"
-                class="campo-form"
-                placeholder="Confirme sua nova senha"
-            >
-            <button
-                type="button"
-                class="buton-entrar"
-                onclick="entrar()"
-            >
-                <h2>Redefinir senha</h2>
-            </button>
-            <p id="mensagem"></p>
+            <p id="mensagem" aria-live="polite"></p>
         </div>
     </div>
    
+
+    <script>
+        // Código de demonstração: em um sistema real, o servidor enviaria o código por e-mail.
+        const codigoCorreto = "123456";
+
+        function enviarCodigo() {
+            const email = document.getElementById("email");
+            const mensagem = document.getElementById("mensagem");
+
+            if (!email.value.trim() || !email.checkValidity()) {
+                mensagem.textContent = "Digite um e-mail válido.";
+                email.focus();
+                return;
+            }
+
+            document.getElementById("etapaCodigo").hidden = false;
+            mensagem.textContent = "Código enviado. Para teste, use 123456.";
+            document.getElementById("codigo").focus();
+        }
+
+        function verificarCodigo() {
+            const codigo = document.getElementById("codigo").value.trim();
+            const mensagem = document.getElementById("mensagem");
+
+            if (codigo !== codigoCorreto) {
+                mensagem.textContent = "Código incorreto. Confira e tente novamente.";
+                return;
+            }
+
+            document.getElementById("etapaSenha").hidden = false;
+            mensagem.textContent = "Código confirmado. Agora crie sua nova senha.";
+            document.getElementById("senha").focus();
+        }
+
+        function redefinirSenha() {
+            const senha = document.getElementById("senha").value;
+            const confirmarSenha = document.getElementById("confirmarSenha").value;
+            const mensagem = document.getElementById("mensagem");
+
+            if (!senha || !confirmarSenha) {
+                mensagem.textContent = "Preencha os dois campos de senha.";
+                return;
+            }
+
+            if (senha !== confirmarSenha) {
+                mensagem.textContent = "As senhas não conferem.";
+                return;
+            }
+
+            mensagem.textContent = "Nova senha definida com sucesso.";
+        }
+    </script>
 
 </body>
 
