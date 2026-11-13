@@ -25,3 +25,13 @@ body[data-theme="dark"] .dashboard-footer{border-color:var(--line)}
 body[data-theme="dark"] .theme-toggle{background:#40372f;color:#f0c6a7;border-color:#5c4a3c}
 .panel-theme-toggle{font-size:9px;padding:7px 10px}
 @media(max-width:600px){.panel-theme-toggle{font-size:8px;padding:6px 7px}}
+ 
+.theme-controls{display:flex;align-items:center;gap:4px;padding:3px;border:1px solid var(--line);border-radius:22px;background:var(--soft)}
+.theme-toggle{border:0;border-radius:18px;padding:7px 10px;background:transparent;color:var(--muted);font-size:9px;font-weight:800;cursor:pointer;white-space:nowrap}
+.theme-toggle[aria-pressed="true"]{background:var(--accent);color:#fff}
+body[data-theme="dark"] .theme-controls{background:#302c29;border-color:#49413b}
+body[data-theme="dark"] .theme-toggle{color:#d8cec5}
+body[data-theme="dark"] .theme-toggle[aria-pressed="true"]{background:#b97851;color:#fff}
+.notice-mark{width:24px;height:24px;display:grid;place-items:center;border:1px solid var(--accent);border-radius:50%;color:var(--accent-dark);font-weight:800;font-size:13px}
+.settings-icon,.reward-icon{font-size:9px;font-weight:800;letter-spacing:.04em}
+@media(max-width:600px){.theme-controls{gap:2px;padding:2px}.theme-toggle{font-size:8px;padding:6px 7px}}

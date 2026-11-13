@@ -97,7 +97,7 @@
       const cart = getCart();
       list.innerHTML = "";
       if (!cart.length) {
-        list.innerHTML = '<div class="empty-cart"><span>🛍️</span><h2>Seu carrinho está esperando</h2><p>Escolha alguma delícia no cardápio para começar.</p><a class="checkout-button" href="principal.html">Explorar cardápio</a></div>';
+        list.innerHTML = '<div class="empty-cart"><span class="empty-cart-mark">UAI</span><h2>Seu carrinho está esperando</h2><p>Escolha alguma delícia no cardápio para começar.</p><a class="checkout-button" href="principal.html">Explorar cardápio</a></div>';
       } else {
         cart.forEach(item => {
           const row = document.createElement("article");

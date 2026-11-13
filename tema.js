@@ -7,24 +7,28 @@
     document.body.dataset.theme = theme;
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.content = theme === "dark" ? "#24211f" : "#fcfbf9";
-    const button = document.getElementById("themeToggle");
-    if (button) {
-      button.textContent = theme === "dark" ? "☀ Tema claro" : "☾ Tema escuro";
-      button.setAttribute("aria-label", theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro");
-      button.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
-    }
+    document.querySelectorAll("[data-theme-choice]").forEach(button => {
+      const active = button.dataset.themeChoice === theme;
+      button.setAttribute("aria-pressed", String(active));
+    });
   };
-  const initial = saved || (preferred ? "dark" : "light");
-  applyTheme(initial);
-  const button = document.createElement("button");
-  button.type = "button";
-  button.id = "themeToggle";
-  button.className = document.body.dataset.panel ? "theme-toggle panel-theme-toggle" : "theme-toggle";
-  button.addEventListener("click", () => {
-    const next = document.body.dataset.theme === "dark" ? "light" : "dark";
-    localStorage.setItem(KEY, next);
-    applyTheme(next);
+  applyTheme(saved || (preferred ? "dark" : "light"));
+  const controls = document.createElement("div");
+  controls.className = "theme-controls";
+  controls.setAttribute("role", "group");
+  controls.setAttribute("aria-label", "Escolher aparência");
+  [["light","Claro"],["dark","Escuro"]].forEach(([value,label]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "theme-toggle";
+    button.dataset.themeChoice = value;
+    button.textContent = label;
+    button.addEventListener("click", () => {
+      localStorage.setItem(KEY, value);
+      applyTheme(value);
+    });
+    controls.appendChild(button);
   });
   const target = document.querySelector(".header-actions, .header-right");
-  if (target) target.prepend(button);
+  if (target) target.prepend(controls);
 })();
