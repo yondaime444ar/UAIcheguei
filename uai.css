@@ -1903,3 +1903,23 @@ body.login-page[data-theme="dark"] {
 .site-footer .footer-brand{display:inline-flex;align-items:center;gap:8px}
 .site-footer .footer-brand::before{content:"";display:inline-block;width:30px;height:22px;background:url("chef-hat-accent.svg") center/contain no-repeat}
 @media(max-width:760px){.brand-logo{width:145px;max-height:48px}.dashboard-brand img.brand-logo{width:150px;max-height:48px}.login-brand-logo{width:min(80%,360px)}}
+
+
+/* Contraste das imagens de marca conforme o tema */
+body.login-page[data-theme="light"],
+body.register-page[data-theme="light"],
+body.reset-page[data-theme="light"] {
+    background-image: linear-gradient(135deg, rgba(255, 248, 241, 0.10), rgba(225, 88, 0, 0.08)), url("https://uploads.onecompiler.io/44g7ujbgc/1787313298296/ChatGPT%20Image%2021%20de%20ago.%20de%202026,%2008_45_55.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body.login-page[data-theme="dark"],
+body.register-page[data-theme="dark"],
+body.reset-page[data-theme="dark"] {
+    background-image: linear-gradient(135deg, rgba(24, 21, 19, 0.62), rgba(24, 21, 19, 0.34)), url("https://uploads.onecompiler.io/44g7ujbgc/1787313298296/ChatGPT%20Image%2021%20de%20ago.%20de%202026,%2008_45_55.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
