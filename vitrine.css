@@ -111,3 +111,32 @@ button{cursor:pointer}
 @media(max-width:640px){.wrap{width:calc(100% - 32px)}.top-strip{font-size:10px}.header-main{min-height:auto;padding-top:12px;padding-bottom:12px;display:grid;grid-template-columns:90px 1fr auto;gap:10px}.brand{grid-column:1;grid-row:1}.brand img{width:88px;height:50px}.search-box{grid-column:1/-1;grid-row:2;max-width:none;height:42px}.header-actions{grid-column:3;grid-row:1;gap:11px}.header-link{gap:3px}.header-link small{font-size:9px}.profile-link{width:31px;height:31px}.category-nav{padding-bottom:11px;gap:7px}.category-pill{padding:8px 12px;font-size:10px}.hero{margin-top:16px;grid-template-columns:1fr;min-height:0}.hero-copy{padding:34px 25px 8px}.hero h1{font-size:43px}.hero-copy>p{font-size:13px}.hero-proof{margin-top:19px}.hero-art{min-height:250px;padding:15px}.hero-art:before{width:230px;height:230px;right:14%;top:0}.hero-art img{height:205px;width:75%}.hero-note{top:25px;left:5%;padding:8px 10px}.hero-sticker{width:66px;height:66px;font-size:10px;bottom:18px;right:7%}.benefits{grid-template-columns:1fr;gap:5px;padding:20px 0}.benefits>div{padding:7px 2px}.benefits>div+div{border-left:0}.benefits>div>span{width:36px;height:36px}.menu-section{padding:40px 0}.section-heading{align-items:center}.section-heading h2{font-size:24px}.section-heading p{font-size:11px}.product-grid{gap:12px}.product-image{height:140px}.product-info{padding:12px}.product-info h3{font-size:14px}.product-info p{font-size:10px;min-height:48px}.product-bottom strong{font-size:13px}.add-button{width:32px;height:32px}.product-tag{font-size:7px;top:8px;left:8px}.favorite-button{width:29px;height:29px;top:8px;right:8px;font-size:17px}.closing-banner{min-height:200px;padding:28px 24px;margin-bottom:42px}.closing-emoji{font-size:68px}.footer-inner{gap:10px 18px}.footer-inner p{width:100%;order:3}.footer-inner small{width:100%}}
 @media(max-width:380px){.header-actions{gap:7px}.header-link{font-size:10px}.product-grid{grid-template-columns:1fr}.product-image{height:190px}.product-info p{min-height:0}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Ajuste de conforto visual e cabeçalho */
+:root{--orange:#d98a5b;--orange-dark:#bd7047;--ink:#39332f;--muted:#817973;--cream:#faf8f5;--line:#ebe6e0;--green:#66806c;--shadow:0 12px 34px rgba(65,50,39,.065)}
+body{background:#fcfbf9;color:var(--ink)}
+.top-strip{background:#51483f;color:#f8f4ef}
+.top-strip span{color:#e8cdbb}
+.site-header{background:rgba(252,251,249,.97);box-shadow:0 5px 22px rgba(50,40,32,.045)}
+.header-main{min-height:82px;gap:24px}
+.brand{flex-basis:118px}
+.brand img{width:112px;height:64px}
+.search-box{background:#f4f1ed;border-color:#e9e3dc;border-radius:13px}
+.search-box:focus-within{border-color:#d9a486;box-shadow:0 0 0 3px rgba(217,138,91,.12)}
+.address-icon,.profile-link{background:#f3eae2;color:#bd7952}
+.category-pill{background:#f3f0ec;color:#665e57}
+.category-pill.active{background:#d98a5b;color:#fff;box-shadow:0 4px 12px rgba(189,112,71,.2)}
+.hero{background:#f5eee7}
+.hero h1 em,.eyebrow,.product-category{color:#bd7952}
+.hero-art:before{background:#ead7c7}
+.hero-sticker{background:#d98a5b;box-shadow:0 7px 18px rgba(189,112,71,.2)}
+.benefits>div>span{background:#f3ece5;color:#bd7952}
+.menu-count{background:#f3ece5;color:#9a674a}
+.product-tag{background:#bd7952}
+.tag-green{background:#718775}.tag-pink{background:#b77e83}
+.add-button,.primary-button{background:#c98359;box-shadow:0 6px 15px rgba(189,112,71,.18)}
+.add-button:hover{background:#b8754d}
+.closing-banner{background:#51483f}
+.closing-banner .eyebrow{color:#e7c9b3}
+.footer-brand b{color:#d99a72}
+@media(max-width:640px){.header-main{gap:10px}.header-actions{gap:14px}.header-link>span{color:#6e6259}}
