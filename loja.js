@@ -42,10 +42,10 @@
       document.getElementById("resultCount").textContent = visible + (visible === 1 ? " opção" : " opções");
       document.getElementById("emptyResults").hidden = visible !== 0;
     };
-    document.querySelectorAll("[data-category]").forEach(button => {
+    document.querySelectorAll(".category-pill[data-category]").forEach(button => {
       button.addEventListener("click", () => {
         activeCategory = button.dataset.category;
-        document.querySelectorAll("[data-category]").forEach(item => item.classList.toggle("active", item === button));
+        document.querySelectorAll(".category-pill[data-category]").forEach(item => item.classList.toggle("active", item === button));
         filter();
       });
     });
@@ -102,7 +102,9 @@
         cart.forEach(item => {
           const row = document.createElement("article");
           row.className = "cart-item";
-          row.innerHTML = '<img src="' + item.image + '" alt=""><div class="cart-item-info"><span class="cart-item-category">UAI CHEGUEI</span><h3></h3><p></p><button class="remove-item" type="button">Remover</button></div><div class="cart-item-actions"><strong></strong><div class="quantity-control"><button type="button" data-change="-1" aria-label="Diminuir quantidade">−</button><span></span><button type="button" data-change="1" aria-label="Aumentar quantidade">+</button></div></div>';
+          row.innerHTML = '<img alt=""><div class="cart-item-info"><span class="cart-item-category">UAI CHEGUEI</span><h3></h3><p></p><button class="remove-item" type="button">Remover</button></div><div class="cart-item-actions"><strong></strong><div class="quantity-control"><button type="button" data-change="-1" aria-label="Diminuir quantidade">−</button><span></span><button type="button" data-change="1" aria-label="Aumentar quantidade">+</button></div></div>';
+          row.querySelector("img").src = item.image;
+          row.querySelector("img").alt = item.name;
           row.querySelector("h3").textContent = item.name;
           row.querySelector("p").textContent = item.description;
           row.querySelector(".cart-item-actions strong").textContent = money(item.price * item.quantity);
