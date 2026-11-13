@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAIcheguei - Meu carrinho</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #112221;
+            background-color: #F5F5F5;
+
+        }
+
+        h2, h3 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .limpa {
+            clear: both;
+        }
+
+        .topo {
+            background-color: #FFFFFF;
+            border-bottom: 2px solid #FF6B00;
+            padding: 15px 0;
+        }
+
+        .topo .logo {
+            float: left;
+            width: 90px;
+            height: 90px;
+            background-color: #FF6B00;
+            border-radius: 50%;
+            color: #FFFFFF;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 18px;
+            padding-top: 25px;
+        }
+
+        .topo .entrega {
+            float: left;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .topo .entrega span {
+            display: block;
+            font-size: 13px;
+        }
+
+        .topo .entrega .rua {
+            color: #FF6B00;
+            font-weight: bold;
+        }
+
+        .topo .busca {
+            float: left;
+            width: 380px;
+            margin-left: 30px;
+            margin-top: 5px;
+        }
+
+        .topo .busca input {
+            width: 100%;
+            height: 52px;
+            padding: 12px 20px;
+            border: 1px solid #CCCCCC;
+            border-radius: 28px;
+            background-color: #F0F0F0;
+            font-size: 15px;
+        }
+
+        .topo .acoes {
+            float: right;
+            margin-top: 15px;
+            margin-right: 10px;
+        }
+
+        .topo .acoes a {
+            display: inline-block;
+            margin-left: 25px;
+            text-decoration: none;
+            color: #112221;
+            font-size: 13px;
+        }
+
+        .topo .avatar {
+            float: right;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background-color: #FCD9AB;
+            margin-top: 10px;
+            border: 2px solid #FF6B00;
+        }
+
+        .menu-categorias {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #DDDDDD;
+            padding: 10px 0;
+        }
+
+        .menu-categorias ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu-categorias li {
+            display: inline-block;
+            margin-right: 25px;
+        }
+
+        .menu-categorias a {
+            text-decoration: none;
+            color: #112221;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .menu-categorias a:hover {
+            color: #FF6B00;
+        }
+
+        .titulo-secao {
+            color: #FF6B00;
+            font-size: 22px;
+            border-bottom: 3px solid #FF6B00;
+            padding-bottom: 8px;
+            margin-top: 35px;
+        }
+
+        .botao-secundario {
+            display: inline-block;
+            background-color: #FFFFFF;
+            color: #FF6B00;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            padding: 12px 28px;
+            border: 1px solid #FF6B00;
+            border-radius: 25px;
+            box-shadow: 0 2px 6px rgba(255, 107, 0, 0.25);
+            cursor: pointer;
+            font-size: 15px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .botao-secundario:active,
+        .botao-cupons:active,
+        .botao:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+        }
+
+        .acoes-carrinho {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .cupons-disponiveis {
+            position: relative;
+            display: inline-block;
+        }
+
+        .botao-cupons {
+            padding: 12px 18px;
+            border: 1px solid #FF6B00;
+            border-radius: 25px;
+            background-color: #FF6B00;
+            color: #FFFFFF;
+            font-weight: bold;
+            box-shadow: 0 2px 6px rgba(255, 107, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .botao-cupons:hover {
+            background-color: #E85F00;
+            box-shadow: 0 3px 8px rgba(255, 107, 0, 0.4);
+        }
+
+        .lista-cupons {
+            display: none;
+            position: absolute;
+            z-index: 2;
+            top: 48px;
+            left: 0;
+            width: 230px;
+            padding: 10px;
+            background-color: #FFFFFF;
+            border: 1px solid #DDDDDD;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .lista-cupons.aberta {
+            display: block;
+        }
+
+        .lista-cupons button {
+            display: block;
+            width: 100%;
+            margin: 4px 0;
+            padding: 10px;
+            border: 1px solid #EEEEEE;
+            border-radius: 6px;
+            background-color: #F5F5F5;
+            color: #112221;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .lista-cupons button:hover {
+            background-color: #FCD9AB;
+        }
+
+        .carrinho-conteudo .coluna-itens {
+            float: left;
+            width: 62%;
+        }
+
+        .carrinho-conteudo .coluna-resumo {
+            float: right;
+            width: 34%;
+            background-color: #FFFFFF;
+            border: 1px solid #DDDDDD;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .item-carrinho {
+            background-color: #FFFFFF;
+            border: 1px solid #EEEEEE;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .item-carrinho .foto {
+            float: left;
+            width: 100px;
+            height: 80px;
+            background-color: #FCD9AB;
+            border-radius: 10px;
+        }
+
+        .item-carrinho .info {
+            float: left;
+            margin-left: 20px;
+            width: 55%;
+        }
+
+        .item-carrinho .preco {
+            float: right;
+            text-align: right;
+            color: #FF6B00;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        .linha-resumo {
+            padding: 8px 0;
+            border-bottom: 1px solid #EEEEEE;
+        }
+
+        .linha-resumo span.valor {
+            float: right;
+            font-weight: bold;
+        }
+
+        .linha-total {
+            padding: 15px 0;
+            font-size: 20px;
+            font-weight: bold;
+            color: #FF6B00;
+        }
+
+        .linha-total span.valor {
+            float: right;
+        }
+
+        .caixa-entrega {
+            background-color: #112221;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .botao {
+            display: inline-block;
+            background-color: #FF6B00;
+            color: #FFFFFF;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 2px 6px rgba(255, 107, 0, 0.3);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .rodape {
+            background-color: #112221;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 700px) {
+            .carrinho-conteudo .coluna-itens,
+            .carrinho-conteudo .coluna-resumo {
+                float: none;
+                width: 100%;
+            }
+
+            .topo .busca {
+                width: 100%;
+                margin: 15px 0 0;
+            }
+
+            .topo .busca input {
+                width: 100%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="melhorias.css">
+</head>
+<body>
+
+    <div class="topo">
+        <div class="container">
+            <div class="logo">UAI<br>CHEGUEI</div>
+            <div class="entrega">
+                <span>Entregar em</span>
+                <span><strong>Minha Casa</strong></span>
+                <span class="rua">Rua -------</span>
+            </div>
+            <div class="busca">
+                <input type="text" placeholder="O que você quer comer hoje?">
+            </div>
+            <div class="avatar"></div>
+            <div class="acoes">
+                <a href="index.html">Início</a>
+                <a href="carrinho.html" style="color:#FF6B00;">Carrinho</a>
+                <a href="favoritos.html">Favoritos</a>
+            </div>
+            <div class="limpa"></div>
+        </div>
+    </div>
+
+    <div class="menu-categorias">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="#">Restaurantes</a></li>
+                <li><a href="#">Lanches</a></li>
+                <li><a href="#">Pizza</a></li>
+                <li><a href="#">Japonesa</a></li>
+                <li><a href="#">Açaí</a></li>
+                <li><a href="#">Doces</a></li>
+                <li><a href="#">Promoções</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="titulo-secao">Meu carrinho</h2>
+        <p class="acoes-carrinho">
+            Revise os itens e continue o pagamento
+            <a href="index.html" class="botao-secundario">+ Adicionar mais</a>
+            <span class="cupons-disponiveis">
+                <button type="button" class="botao-cupons" onclick="mostrarCupons()">Meus cupons</button>
+                <span id="lista-cupons" class="lista-cupons">
+                    <button type="button" onclick="selecionarCupom('UAI10')">UAI10 — 10% de desconto</button>
+                    <button type="button" onclick="selecionarCupom('BEMVINDO5')">BEMVINDO5 — R$ 5 de desconto</button>
+                    <button type="button" onclick="selecionarCupom('FRETEGRATIS')">FRETEGRATIS — Frete grátis</button>
+                </span>
+            </span>
+        </p>
+
+        <div class="carrinho-conteudo">
+            <div class="coluna-itens">
+                <div class="item-carrinho">
+                    <div class="foto"></div>
+                    <div class="info">
+                        <h3>X-Bacon</h3>
+                        <p>Acompanha batatas fritas</p>
+                    </div>
+                    <div class="preco">R$ 29,90</div>
+                    <div class="limpa"></div>
+                </div>
+
+                <div class="item-carrinho">
+                    <div class="foto"></div>
+                    <div class="info">
+                        <h3>Batata frita</h3>
+                        <p>Batata frita, tamanho P</p>
+                    </div>
+                    <div class="preco">R$ 7,99</div>
+                    <div class="limpa"></div>
+                </div>
+            </div>
+
+            <div class="coluna-resumo">
+                <h3>Resumo do seu pedido</h3>
+                <div class="linha-resumo">Subtotal <span class="valor">R$ 29,90</span></div>
+                <div class="linha-resumo">Taxa de entrega <span class="valor">R$ 9,99</span></div>
+                <div class="linha-total">Total <span class="valor">R$ 39,89</span></div>
+
+                <div class="caixa-entrega">
+                    <strong>Entrega estimada</strong><br>
+                    <span style="color:#FF6B00; font-size:20px;">15-25 minutos</span><br>
+                    Para sua região
+                </div>
+
+                <p style="text-align:center;">
+                    <a href="#" class="botao" style="width:100%;">Finalizar compra</a>
+                </p>
+            </div>
+
+            <div class="limpa"></div>
+        </div>
+    </div>
+
+    <div class="rodape">
+        <p>UAIcheguei &copy; 2026 - Projeto escolar FDW1</p>
+    </div>
+
+    <script>
+        function mostrarCupons() {
+            document.getElementById('lista-cupons').classList.toggle('aberta');
+        }
+
+        function selecionarCupom(cupom) {
+            document.getElementById('lista-cupons').classList.remove('aberta');
+            alert('Cupom ' + cupom + ' selecionado!');
+        }
+    </script>
+
+</body>
+</html>
