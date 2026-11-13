@@ -174,3 +174,14 @@ body[data-theme="dark"] .theme-toggle{background:#3a3029;color:#f0c6a7;border-co
 .theme-toggle:hover{border-color:#d6a17e}
 .header-actions .theme-toggle{order:-1}
 @media(max-width:640px){.theme-toggle{font-size:9px;padding:7px 8px}.header-actions .theme-toggle{grid-column:1;grid-row:1}}
+ 
+.theme-controls{display:flex;align-items:center;gap:4px;padding:3px;border:1px solid #e7ddd4;border-radius:22px;background:#f5eee8}
+.theme-toggle{border:0;border-radius:18px;padding:7px 10px;background:transparent;color:#75665b;font-size:10px;font-weight:700;cursor:pointer;white-space:nowrap}
+.theme-toggle[aria-pressed="true"]{background:#c98359;color:#fff;box-shadow:0 2px 7px rgba(100,65,43,.15)}
+body[data-theme="dark"] .theme-controls{background:#302c29;border-color:#49413b}
+body[data-theme="dark"] .theme-toggle{color:#d8cec5}
+body[data-theme="dark"] .theme-toggle[aria-pressed="true"]{background:#b97851;color:#fff}
+.hero-note-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#f3ece5;color:#bd7952;font-size:11px;font-weight:800;letter-spacing:.04em}
+body[data-theme="dark"] .hero-note-mark{background:#49392e;color:#efc4a5}
+.benefits>div>span{font-size:12px;font-weight:800;letter-spacing:.06em}
+@media(max-width:640px){.theme-controls{gap:2px;padding:2px}.theme-toggle{font-size:9px;padding:7px 8px}}
