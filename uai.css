@@ -1893,3 +1893,13 @@ body.login-page {
 body.login-page[data-theme="dark"] {
     background-image: url("https://uploads.onecompiler.io/44g7ujbgc/1787313298296/ChatGPT%20Image%2021%20de%20ago.%20de%202026,%2008_45_55.png");
 }
+
+
+/* Identidade visual UAI CHEGUEI */
+.brand-logo{display:block;width:clamp(150px,18vw,220px);height:auto;max-height:64px;object-fit:contain}
+.dashboard-brand img.brand-logo{width:190px;max-height:58px}
+.login-brand-logo{display:block;width:min(100%,560px);height:auto;object-fit:contain}
+[data-theme="dark"] .brand-logo,[data-theme="dark"] .login-brand-logo{filter:none}
+.site-footer .footer-brand{display:inline-flex;align-items:center;gap:8px}
+.site-footer .footer-brand::before{content:"";display:inline-block;width:30px;height:22px;background:url("chef-hat-accent.svg") center/contain no-repeat}
+@media(max-width:760px){.brand-logo{width:145px;max-height:48px}.dashboard-brand img.brand-logo{width:150px;max-height:48px}.login-brand-logo{width:min(80%,360px)}}

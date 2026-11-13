@@ -18,6 +18,7 @@
     document.body.dataset.theme = theme;
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.content = theme === "dark" ? "#211f1d" : "#fcfbf9";
+    document.querySelectorAll("[data-uai-logo]").forEach(logo => { logo.src = theme === "dark" ? "logo-horizontal-white.svg" : "logo-horizontal.svg"; });
     const nextTheme = theme === "dark" ? "light" : "dark";
     button.innerHTML = theme === "dark" ? moon : sun;
     button.setAttribute("aria-label", "Ativar tema " + (nextTheme === "dark" ? "escuro" : "claro"));
