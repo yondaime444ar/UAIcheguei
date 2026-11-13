@@ -140,3 +140,37 @@ body{background:#fcfbf9;color:var(--ink)}
 .closing-banner .eyebrow{color:#e7c9b3}
 .footer-brand b{color:#d99a72}
 @media(max-width:640px){.header-main{gap:10px}.header-actions{gap:14px}.header-link>span{color:#6e6259}}
+
+
+:root[data-theme="dark"],body[data-theme="dark"]{color-scheme:dark;--ink:#eee8e2;--muted:#b5aaa0;--cream:#24211f;--line:#403a35;--shadow:0 14px 38px rgba(0,0,0,.22)}
+body[data-theme="dark"]{background:#211f1d;color:var(--ink)}
+body[data-theme="dark"] .top-strip{background:#171513;color:#eee8e2}
+body[data-theme="dark"] .site-header{background:rgba(36,33,31,.97);border-color:#403a35}
+body[data-theme="dark"] .search-box,body[data-theme="dark"] .category-pill{background:#302c29;border-color:#49413b;color:#d8cec5}
+body[data-theme="dark"] .search-box input{color:#f3ece6}
+body[data-theme="dark"] .address-icon,body[data-theme="dark"] .profile-link,body[data-theme="dark"] .benefits>div>span{background:#3a3029;color:#e2a77f}
+body[data-theme="dark"] .header-link,body[data-theme="dark"] .header-link>span{color:#e5dcd4}
+body[data-theme="dark"] .category-pill.active{background:#b97851;color:#fff}
+body[data-theme="dark"] .hero{background:#332b25}
+body[data-theme="dark"] .hero h1{color:#f3ece6}
+body[data-theme="dark"] .hero-copy>p,body[data-theme="dark"] .hero-proof small{color:#c2b5aa}
+body[data-theme="dark"] .hero-art:before{background:#594335}
+body[data-theme="dark"] .hero-note{background:#3b3530;color:#f2eae3}
+body[data-theme="dark"] .hero-note small{color:#c2b5aa}
+body[data-theme="dark"] .hero-sticker{background:#b97851}
+body[data-theme="dark"] .benefits{border-color:var(--line)}
+body[data-theme="dark"] .benefits small{color:var(--muted)}
+body[data-theme="dark"] .menu-count{background:#3a3029;color:#e2a77f}
+body[data-theme="dark"] .product-card{background:#2b2825;border-color:#403a35}
+body[data-theme="dark"] .product-image{background:#38312b}
+body[data-theme="dark"] .product-info p{color:#b5aaa0}
+body[data-theme="dark"] .product-bottom{border-color:#403a35}
+body[data-theme="dark"] .favorite-button{background:#39332e;color:#eee8e2}
+body[data-theme="dark"] .empty-results{background:#2b2825;color:var(--muted)}
+body[data-theme="dark"] .closing-banner{background:#171513}
+body[data-theme="dark"] .site-footer{background:#171513}
+body[data-theme="dark"] .theme-toggle{background:#3a3029;color:#f0c6a7;border-color:#594335}
+.theme-toggle{border:1px solid #e7ddd4;border-radius:20px;padding:8px 11px;background:#f5eee8;color:#805d47;font-size:10px;font-weight:800;white-space:nowrap;cursor:pointer;transition:background .2s,border-color .2s}
+.theme-toggle:hover{border-color:#d6a17e}
+.header-actions .theme-toggle{order:-1}
+@media(max-width:640px){.theme-toggle{font-size:9px;padding:7px 8px}.header-actions .theme-toggle{grid-column:1;grid-row:1}}
