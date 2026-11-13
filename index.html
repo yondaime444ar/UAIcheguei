@@ -1,277 +1,28 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fcfbf9">
     <title>UAIcheguei</title>
 
-    <style>
-        .container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        body {
-background-image: url(https://uploads.onecompiler.io/44g7ujbgc/1787313298296/ChatGPT%20Image%2021%20de%20ago.%20de%202026,%2008_45_55.png);
-
-            background-color: #e15800;
-            background-image: url(https://uploads.onecompiler.io/44g7ujbgc/1783699274529/C%C3%B3pia%20de%20UAIcheguei%20(1).png);
-            background-size: cover;
-            background-position: center;
-            font-family: Arial;
-        }
-
-        .campo-form {
-            width: 100%;
-            padding: 12px 20px;
-            margin-bottom: 15px;
-            border: 2px solid #666;
-            border-radius: 25px;
-            box-sizing: border-box;
-            font-size: 1em;
-            max-width: 100%;
-            cursor: pointer;
-        }
-
-        .caixa-branca {
-            position: relative;
-            margin-top: 4%;
-            left: 10%;
-            background-color: white;
-            padding: 10px;
-            border-radius: 20px;
-            width: 500px;
-            text-align: center;
-            color: #999;
-            font-size: 0.9em;
-            margin-bottom: 25px;
-            height: 600px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            z-index: 20;
-        }
-
-        .uai_imagem {
-            max-width: 100%;
-            display: flex;
-            margin-bottom: 25px;
-            flex-direction: column;
-            align-items: center;
-            z-index: 10;
-            margin-top: 2%;
-        }
-
-        .caixa-marrom {
-            background-color: #4f3011;
-            padding: 1px;
-            border-radius: 20px;
-            width: 60%;
-            text-align: center;
-            color: white;
-            font-size: 22px;
-            margin-bottom: 25%;
-            position: relative;
-            z-index: 20;
-            margin-top: -20px;
-        }
-
-        .buton-entrar {
-            background-color: #e15800;
-            padding: 1%;
-            border-radius: 20px;
-            width: 98%;
-            text-align: center;
-            color: black;
-            margin-bottom: 25px;
-            cursor: pointer;
-            display: block;
-            text-decoration: none;
-            border: none;
-            box-sizing: border-box;
-        }
-
-        .buton-entrar:hover {
-            background-color: #c94d00;
-        }
-
-        .buton-entrar:active {
-            transform: translateY(4px);
-        }
-
-        .buton-entrar h2 {
-            margin: 0;
-        }
-
-        .laranja {
-            color: #e15800;
-        }
-
-        .esqueci {
-            color: black;
-            cursor: pointer;
-            text-decoration: underline;
-            font-size: 1.25em;
-            display: block;
-            margin-top: 10px;
-        }
-
-        a:hover {
-            color: blue;
-        }
-
-        #mensagem {
-            color: #c0392b;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-
-        body {
-            min-height: 100vh;
-            margin: 0;
-            background-color: #e15800;
-            background-image: linear-gradient(120deg, rgba(40, 22, 10, 0.48), rgba(225, 88, 0, 0.16)), url(https://uploads.onecompiler.io/44g7ujbgc/1783699274529/C%C3%B3pia%20de%20UAIcheguei%20(1).png);
-            background-size: cover;
-            background-position: center;
-        }
-
-        .container {
-            min-height: 100vh;
-            gap: clamp(24px, 5vw, 70px);
-            padding: 32px 6%;
-        }
-
-        .caixa-branca {
-            left: auto;
-            width: min(440px, 100%);
-            height: auto;
-            margin: 0;
-            padding: 34px 32px;
-            color: #29221d;
-            border: 1px solid rgba(255, 255, 255, 0.75);
-            box-shadow: 0 18px 50px rgba(45, 25, 10, 0.28);
-        }
-
-        .caixa-branca h1 {
-            margin: 0 0 8px;
-            font-size: clamp(1.65rem, 4vw, 2rem);
-            letter-spacing: -0.6px;
-        }
-
-        .caixa-branca p {
-            margin: 12px 0 22px;
-            line-height: 1.55;
-        }
-
-        .campo-form {
-            margin-bottom: 13px;
-            padding: 13px 17px;
-            border: 1px solid #e6ddd5;
-            background: #fcfbfa;
-            cursor: text;
-            transition: border-color 160ms ease, box-shadow 160ms ease;
-        }
-
-        .campo-form:focus {
-            border-color: #e15800;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(225, 88, 0, 0.12);
-        }
-
-        .buton-entrar {
-            margin: 4px 0 10px;
-            padding: 12px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, #f2762c, #e15800);
-            color: white;
-            font: inherit;
-            font-weight: 700;
-            box-shadow: 0 7px 16px rgba(225, 88, 0, 0.2);
-            transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-        }
-
-        .buton-entrar:hover {
-            background: linear-gradient(135deg, #e9651b, #c94d00);
-            box-shadow: 0 9px 20px rgba(225, 88, 0, 0.28);
-            transform: translateY(-1px);
-        }
-
-        .buton-entrar:active {
-            transform: translateY(0);
-        }
-
-        .esqueci,
-        .criar-conta {
-            font-size: 0.95rem;
-        }
-
-        .esqueci {
-            margin-top: 9px;
-            color: #66584e;
-        }
-
-        .criar-conta {
-            color: #66584e;
-            text-decoration: none;
-        }
-
-        .criar-conta span {
-            color: #d94f00;
-            font-weight: 700;
-        }
-
-        .criar-conta:hover span {
-            text-decoration: underline;
-        }
-
-        .uai_imagem {
-            width: min(52%, 650px);
-            margin: 0;
-        }
-
-        .uai_imagem img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-        }
-
-        .caixa-marrom {
-            width: min(420px, 90%);
-            margin: 4px 0 0;
-            padding: 4px 18px;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(45, 25, 10, 0.2);
-        }
-
-        @media (max-width: 760px) {
-            .container {
-                flex-direction: column;
-                justify-content: center;
-                padding: 24px 16px;
-            }
-
-            .caixa-branca {
-                padding: 30px 24px;
-            }
-
-            .uai_imagem {
-                display: none;
-            }
-        }
-    </style>
-    <link rel="stylesheet" href="melhorias.css">
+    
+    <link rel="stylesheet" href="uai.css">
     <script src="tema.js" defer></script>
 </head>
 
-<body>
+<body class="login-page">
 
     <div class="container">
 
         <div class="caixa-branca">
 
-            <h1 style="color: #e15800;">Bem vindo(a)!</h1>
+            <h1 class="login-welcome">Bem vindo(a)!</h1>
 
-            <h1 style="color: black;">Crie sua conta</h1>
+            <h1 class="login-title">Crie sua conta</h1>
 
-            <p style="color: #D3D3D3;">
+            <p class="login-description">
                 Ao UAIcheguei, o melhor app<br>
                 de comida de Minas Gerais
             </p>
@@ -352,39 +103,7 @@ background-image: url(https://uploads.onecompiler.io/44g7ujbgc/1787313298296/Cha
 
     </div>
 
-    <script>
-
-        function entrar(event) {
-            event.preventDefault();
-
-            const cpf = document.getElementById("CPF").value.replace(/\D/g, "");
-            const email = document.getElementById("Email").value.trim().toLowerCase();
-            const senha = document.getElementById("Senha").value;
-            const confirmarSenha = document.getElementById("ConfirmarSenha").value;
-            const mensagem = document.getElementById("mensagem");
-
-            if (!cpf || !email || !senha || !confirmarSenha) {
-                mensagem.textContent = "Preencha CPF, e-mail, senha e confirmação da senha.";
-                return;
-            }
-
-            if (senha !== confirmarSenha) {
-                mensagem.textContent = "A senha e a confirmação precisam ser iguais.";
-                return;
-            }
-
-            if (cpf === "12345678900" && email === "cliente@gmail.com" && senha === "123456") {
-                window.location.assign("./principal.html");
-            } else if (cpf === "98765432100" && email === "dono@gmail.com" && senha === "123456") {
-                window.location.assign("./intranet_adm.html");
-            } else if (cpf === "11122233344" && email === "entregador@gmail.com" && senha === "123456") {
-                window.location.assign("./intranet_entregador.html");
-            } else {
-                mensagem.textContent = "Dados incorretos. Para o entregador, confira CPF 11122233344, e-mail entregador@gmail.com e senha e confirmação 123456.";
-            }
-        }
-
-    </script>
+    <script src="login.js"></script>
 
 </body>
 </html>
