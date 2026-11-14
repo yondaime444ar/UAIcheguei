@@ -10,7 +10,12 @@ function entrar(event) {
         return;
     }
 
-    if (email === "cliente@gmail.com" && senha === "123456") {
+    const contas = JSON.parse(localStorage.getItem("uai-contas") || "[]");
+    const conta = contas.find(item => item.email === email && item.senha === senha);
+
+    if (conta) {
+        window.location.assign("./principal.html");
+    } else if (email === "cliente@gmail.com" && senha === "123456") {
         window.location.assign("./principal.html");
     } else if (email === "dono@gmail.com" && senha === "123456") {
         window.location.assign("./intranet_adm.html");
