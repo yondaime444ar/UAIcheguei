@@ -9,10 +9,13 @@
 
     
     <link rel="stylesheet" href="uai.css">
-    <script src="tema.js" defer></script>
 </head>
 
 <body class="login-page">
+<div class="theme-switch-wrap">
+<input class="theme-switch-input" type="checkbox" id="theme-toggle">
+<label class="theme-switch" for="theme-toggle" aria-label="Alternar tema claro e escuro"><span class="theme-sun">☼</span><span class="theme-moon">☾</span></label>
+</div>
 
     <div class="container">
 
@@ -27,13 +30,14 @@
                 de comida de Minas Gerais
             </p>
 
-            <form onsubmit="entrar(event)"><br>
+            <form><br>
 
                 <input
-                    type="text"
+                    type="email"
                     id="Email"
+                    autocomplete="email"
                     class="campo-form"
-                    placeholder="Email:" required required>
+                    placeholder="Email:" required>
 
                 <br>
 
@@ -41,7 +45,7 @@
                     type="password"
                     id="Senha"
                     class="campo-form"
-                    placeholder="Senha:" required required>
+                    placeholder="Senha:" minlength="8" autocomplete="current-password" required>
 
                 <br><br>
 
@@ -53,7 +57,7 @@
 
                 </button>
 
-                <div id="mensagem" aria-live="polite"></div>
+                <p class="static-form-note">Esta tela é uma demonstração visual. O acesso real precisa de um sistema de autenticação.</p>
 
                 <a href="redefinir_senha.html" class="esqueci">
     Esqueci a senha
@@ -83,8 +87,6 @@
         </div>
 
     </div>
-
-    <script src="login.js"></script>
 
 </body>
 </html>
