@@ -2183,3 +2183,64 @@ body.rider-page:has(#theme-toggle:checked) .dashboard-footer{background:#211f1d;
         padding: 24px 17px;
     }
 }
+
+
+/* Largura fluida da tela de login: acompanha a viewport do navegador */
+html {
+    max-width: 100%;
+}
+
+body.login-page {
+    max-width: 100%;
+    margin: 0;
+}
+
+body.login-page .container {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+body.login-page .container > * {
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+body.login-page .caixa-branca,
+body.login-page .caixa-branca form,
+body.login-page .caixa-branca input,
+body.login-page .caixa-branca button {
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+}
+
+@media (max-width: 760px) {
+    body.login-page {
+        overflow-x: clip;
+    }
+
+    body.login-page .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    body.login-page .caixa-branca {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    body.login-page .caixa-branca form {
+        width: 100%;
+    }
+
+    body.login-page .caixa-branca .campo-form,
+    body.login-page .caixa-branca .buton-entrar {
+        width: 100%;
+    }
+}
