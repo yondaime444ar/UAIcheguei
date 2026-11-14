@@ -19,8 +19,12 @@ function prepararContas() {
     ];
 
     exemplos.forEach(exemplo => {
-        const existe = contas.some(conta => conta.email.toLowerCase() === exemplo.email);
-        if (!existe) contas.push(exemplo);
+        const indice = contas.findIndex(conta => conta.email.toLowerCase() === exemplo.email);
+        if (indice >= 0) {
+            contas[indice] = exemplo;
+        } else {
+            contas.push(exemplo);
+        }
     });
 
     salvarContas(contas);
