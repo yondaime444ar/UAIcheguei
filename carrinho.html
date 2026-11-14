@@ -9,10 +9,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
   <link rel="stylesheet" href="uai.css">
-  <script src="loja.js" defer></script>
-  <script src="tema.js" defer></script>
 </head>
 <body class="cart-page-body" data-page="cart">
+<div class="theme-switch-wrap">
+<input class="theme-switch-input" type="checkbox" id="theme-toggle">
+<label class="theme-switch" for="theme-toggle" aria-label="Alternar tema claro e escuro"><span class="theme-sun">☼</span><span class="theme-moon">☾</span></label>
+</div>
   <div class="top-strip">UAI, que fome! <span>Seu pedido está quase pronto.</span></div>
   <header class="site-header">
     <div class="header-main wrap">
@@ -24,20 +26,20 @@
   <main class="wrap cart-page">
     <div class="cart-heading"><div><span class="eyebrow">FALTA POUCO!</span><h1>Revise seu pedido</h1><p>Confira os itens antes de continuar.</p></div><a href="principal.html" class="back-menu">＋ Adicionar mais itens</a></div>
     <div class="cart-layout">
-      <section class="cart-list-panel"><div class="panel-heading"><h2>Seus itens</h2><span id="cartCount">0</span></div><div id="cartItems"></div></section>
+      <section class="cart-list-panel"><div class="panel-heading"><h2>Seus itens</h2><span id="cartCount">0</span></div><div id="cartItems"><p class="static-form-note">Seu carrinho está vazio nesta demonstração. A inclusão e remoção de produtos precisam de processamento.</p></div></section>
       <aside class="summary-panel">
         <h2>Resumo do pedido</h2>
-        <div class="coupon-area"><label for="couponInput">Tem um cupom?</label><div class="coupon-form"><input id="couponInput" type="text" placeholder="Digite seu cupom"><button id="applyCoupon" type="button">Aplicar</button></div><p class="coupon-hint">Experimente UAI10, BEMVINDO5 ou FRETEGRATIS.</p><p class="coupon-message" id="couponMessage" aria-live="polite"></p></div>
+        <div class="coupon-area"><strong>Cupons promocionais</strong><p class="coupon-hint">A aplicação de cupons não está disponível nesta versão estática.</p></div>
         <div class="summary-line"><span>Subtotal</span><strong id="subtotal">R$ 0,00</strong></div>
         <div class="summary-line"><span>Entrega</span><strong id="delivery">R$ 0,00</strong></div>
         <div class="summary-line discount-line"><span>Desconto</span><strong id="discount">R$ 0,00</strong></div>
         <div class="summary-total"><span>Total</span><strong id="total">R$ 0,00</strong></div>
         <p class="delivery-hint">Entrega grátis em pedidos acima de R$ 80,00.</p>
-        <button class="checkout-button" id="checkoutButton" type="button" disabled>Continuar para finalizar <span>→</span></button>
-        <p class="secure-note">Seus itens ficam salvos neste navegador.</p>
+        <button class="checkout-button" type="button" disabled>Continuar para finalizar <span>→</span></button>
+        <p class="secure-note">Esta versão apresenta apenas o layout do carrinho.</p>
       </aside>
     </div>
-    <section class="checkout-notice" id="checkoutNotice" hidden><strong>Quase lá!</strong><p>O carrinho e o cálculo do pedido estão funcionando nesta demonstração. Para receber pedidos reais, ainda é necessário conectar um sistema de pedidos, endereço, pagamento e uma base de dados segura.</p></section>
+    <section class="checkout-notice"><strong>Quase lá!</strong><p>O carrinho e o cálculo do pedido estão funcionando nesta demonstração. Para receber pedidos reais, ainda é necessário conectar um sistema de pedidos, endereço, pagamento e uma base de dados segura.</p></section>
   </main>
   <footer class="site-footer"><div class="wrap footer-inner"><a class="footer-brand" href="principal.html">UAI <b>CHEGUEI</b></a><p>Comida boa, chegando com carinho.</p><small>© 2026 UAI CHEGUEI. Projeto demonstrativo.</small><a href="index.html">Minha conta</a></div></footer>
 </body>
