@@ -7,10 +7,13 @@
 
 
     <link rel="stylesheet" href="uai.css">
-    <script src="tema.js" defer></script>
 </head>
 
 <body class="register-page">
+<div class="theme-switch-wrap">
+<input class="theme-switch-input" type="checkbox" id="theme-toggle">
+<label class="theme-switch" for="theme-toggle" aria-label="Alternar tema claro e escuro"><span class="theme-sun">☼</span><span class="theme-moon">☾</span></label>
+</div>
 
 <main class="form-box">
 
@@ -20,12 +23,14 @@
 
     <p>Crie sua conta UAIcheguei</p>
 
-    <form onsubmit="criarConta(event)">
+    <form>
 
         <input
             class="campo-form"
             id="nome"
             type="text"
+            minlength="3"
+            autocomplete="name"
             placeholder="Nome completo"
             required
         >
@@ -34,6 +39,7 @@
             class="campo-form"
             id="Email"
             type="email"
+            autocomplete="email"
             placeholder="Email"
             required
         >
@@ -42,6 +48,10 @@
             class="campo-form"
             id="telefone"
             type="tel"
+            minlength="10"
+            maxlength="20"
+            pattern="[0-9()+. -]{10,20}"
+            title="Digite um telefone válido."
             placeholder="Número de telefone"
             required
         >
@@ -54,6 +64,7 @@
             class="campo-form"
             id="data-nascimento"
             type="date"
+            max="2008-11-14"
             required
         >
 
@@ -61,6 +72,8 @@
             class="campo-form"
             id="Senha"
             type="password"
+            minlength="8"
+            autocomplete="new-password"
             placeholder="Senha"
             required
         >
@@ -69,6 +82,8 @@
             class="campo-form"
             id="ConfirmarSenha"
             type="password"
+            minlength="8"
+            autocomplete="new-password"
             placeholder="Confirme sua senha"
             required
         >
@@ -80,72 +95,12 @@
             Criar conta
         </button>
 
-        <div id="mensagem"></div>
+        <p class="static-form-note">Preencha os campos obrigatórios. A validação é feita pelo navegador, mas os dados não são salvos nesta versão.</p>
 
     </form>
 
 </main>
-
-<script>
-function criarConta(event) {
-    event.preventDefault();
-
-    const nome = document.getElementById("nome").value.trim();
-    const email = document.getElementById("Email").value.trim().toLowerCase();
-    const telefone = document.getElementById("telefone").value.trim();
-    const nascimento = document.getElementById("data-nascimento").value;
-    const senha = document.getElementById("Senha").value;
-    const confirmarSenha = document.getElementById("ConfirmarSenha").value;
-    const mensagem = document.getElementById("mensagem");
-    const dataLimite = new Date();
-    dataLimite.setHours(0, 0, 0, 0);
-    dataLimite.setFullYear(dataLimite.getFullYear() - 18);
-    const dataNascimento = new Date(nascimento + "T00:00:00");
-
-    if (!nome || !email || !telefone || !nascimento || !senha || !confirmarSenha) {
-        mensagem.textContent = "Preencha todos os campos.";
-        return;
-    }
-
-    if (Number.isNaN(dataNascimento.getTime()) || dataNascimento > new Date(new Date().setHours(0, 0, 0, 0))) {
-        mensagem.textContent = "A data de nascimento não pode ser futura.";
-        return;
-    }
-
-    if (dataNascimento > dataLimite) {
-        mensagem.textContent = "Você precisa ter pelo menos 18 anos para criar uma conta.";
-        return;
-    }
-
-    if (senha !== confirmarSenha) {
-        mensagem.textContent = "As senhas não conferem.";
-        return;
-    }
-
-    const contas = JSON.parse(localStorage.getItem("uai-contas") || "[]");
-
-    if (contas.some(conta => conta.email === email)) {
-        mensagem.textContent = "Este e-mail já possui uma conta.";
-        return;
-    }
-
-    contas.push({ nome: nome, email: email, telefone: telefone, nascimento: nascimento, senha: senha });
-    localStorage.setItem("uai-contas", JSON.stringify(contas));
-    mensagem.textContent = "Conta criada! Agora entre com seu e-mail e senha.";
-    window.location.href = "index.html";
-}
-
-const campoNascimento = document.getElementById("data-nascimento");
-const hoje = new Date();
-const limiteNascimento = new Date(hoje.getFullYear() - 18, hoje.getMonth(), hoje.getDate());
-const formatarData = data => {
-    const ano = data.getFullYear();
-    const mes = String(data.getMonth() + 1).padStart(2, "0");
-    const dia = String(data.getDate()).padStart(2, "0");
-    return ano + "-" + mes + "-" + dia;
-};
-campoNascimento.max = formatarData(limiteNascimento);
-</script>
+ 
 
 </body>
 </html>
