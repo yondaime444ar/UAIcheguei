@@ -7,17 +7,7 @@
 
 
     <link rel="stylesheet" href="uai.css">
-    <script src="tema.js" defer>const campoNascimento = document.getElementById("data-nascimento");
-const hoje = new Date();
-const limiteNascimento = new Date(hoje.getFullYear() - 18, hoje.getMonth(), hoje.getDate());
-const formatarData = data => {
-    const ano = data.getFullYear();
-    const mes = String(data.getMonth() + 1).padStart(2, "0");
-    const dia = String(data.getDate()).padStart(2, "0");
-    return ano + "-" + mes + "-" + dia;
-};
-campoNascimento.max = formatarData(limiteNascimento);
-</script>
+    <script src="tema.js" defer></script>
 </head>
 
 <body class="register-page">
@@ -144,6 +134,17 @@ function criarConta(event) {
     mensagem.textContent = "Conta criada! Agora entre com seu e-mail e senha.";
     window.location.href = "index.html";
 }
+
+const campoNascimento = document.getElementById("data-nascimento");
+const hoje = new Date();
+const limiteNascimento = new Date(hoje.getFullYear() - 18, hoje.getMonth(), hoje.getDate());
+const formatarData = data => {
+    const ano = data.getFullYear();
+    const mes = String(data.getMonth() + 1).padStart(2, "0");
+    const dia = String(data.getDate()).padStart(2, "0");
+    return ano + "-" + mes + "-" + dia;
+};
+campoNascimento.max = formatarData(limiteNascimento);
 </script>
 
 </body>
