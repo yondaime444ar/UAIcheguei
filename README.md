@@ -38,6 +38,20 @@ Os arquivos gráficos da pasta `imagens/` usam nomes em português para facilita
 - `simbolo-branco.svg` — versão branca do símbolo.
 - `detalhe-chapeu-de-chef.svg` — elemento gráfico de chapéu de chef.
 
+## Contas demonstrativas
+
+As contas abaixo são criadas automaticamente no navegador na primeira abertura da tela de login. Todas utilizam a senha padrão **12345678**.
+
+| Perfil | E-mail | Senha |
+| --- | --- | --- |
+| Administrador | admin@uaicheguei.com | 12345678 |
+| Cliente | cliente@uaicheguei.com | 12345678 |
+| Entregador | entregador@uaicheguei.com | 12345678 |
+
+Novos cadastros são criados como clientes e também recebem a senha padrão. Os dados ficam no armazenamento local do navegador.
+
+> **Atenção:** esta autenticação é apenas demonstrativa. Como o projeto é estático e não possui servidor de autenticação, ela não oferece segurança real e não deve ser utilizada com dados ou contas reais.
+
 ## Como visualizar
 
 1. Faça o download ou clone este repositório.
