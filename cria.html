@@ -20,7 +20,7 @@
 
     <p>Crie sua conta UAIcheguei</p>
 
-    <form>
+    <form onsubmit="criarConta(event)">
 
         <input
             class="campo-form"
@@ -75,8 +75,7 @@
 
         <button
             class="botao"
-            type="button"
-            onclick="entrar()"
+            type="submit"
         >
             Criar conta
         </button>
@@ -88,53 +87,38 @@
 </main>
 
 <script>
+function criarConta(event) {
+    event.preventDefault();
 
-function entrar() {
+    const nome = document.getElementById("nome").value.trim();
+    const email = document.getElementById("Email").value.trim().toLowerCase();
+    const telefone = document.getElementById("telefone").value.trim();
+    const nascimento = document.getElementById("data-nascimento").value;
+    const senha = document.getElementById("Senha").value;
+    const confirmarSenha = document.getElementById("ConfirmarSenha").value;
+    const mensagem = document.getElementById("mensagem");
 
-    let nome = document.getElementById("nome").value.trim();
-
-    let gmail = document.getElementById("Email").value.trim().toLowerCase();
-
-    let telefone = document.getElementById("telefone").value.trim();
-
-    let data = document.getElementById("data-nascimento").value;
-
-    let senha = document.getElementById("Senha").value;
-
-    let confirmarSenha = document.getElementById("ConfirmarSenha").value;
-
-
-    if (
-        nome === "" ||
-        gmail === "" ||
-        telefone === "" ||
-        data === "" ||
-        senha === "" ||
-        confirmarSenha === ""
-    ) {
-        document.getElementById("mensagem").innerHTML =
-            "Preencha todos os campos.";
+    if (!nome || !email || !telefone || !nascimento || !senha || !confirmarSenha) {
+        mensagem.textContent = "Preencha todos os campos.";
         return;
     }
+
     if (senha !== confirmarSenha) {
-        document.getElementById("mensagem").innerHTML =
-            "As senhas não conferem.";
+        mensagem.textContent = "As senhas não conferem.";
         return;
     }
-    if (gmail === "cliente@gmail.com" && senha === "123456") {
-        window.location.href = "principal.html";
-    }
-    else if (gmail === "dono@gmail.com" && senha === "123456") {
-        window.location.href = "intranet_adm.html";
-    }
-    else if (gmail === "entregador@gmail.com" && senha === "123456") {
-        window.location.href = "intranet_entregador.html";
-    }
-    else {
-        document.getElementById("mensagem").innerHTML =
-            "Email ou senha não conferem.";
+
+    const contas = JSON.parse(localStorage.getItem("uai-contas") || "[]");
+
+    if (contas.some(conta => conta.email === email)) {
+        mensagem.textContent = "Este e-mail já possui uma conta.";
+        return;
     }
 
+    contas.push({ nome: nome, email: email, telefone: telefone, nascimento: nascimento, senha: senha });
+    localStorage.setItem("uai-contas", JSON.stringify(contas));
+    mensagem.textContent = "Conta criada! Agora entre com seu e-mail e senha.";
+    window.location.href = "index.html";
 }
 </script>
 
