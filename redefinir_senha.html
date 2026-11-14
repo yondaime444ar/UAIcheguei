@@ -1,158 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Redefinir Senha - UAIcheguei</title>
-
-    
-
-    <link rel="stylesheet" href="uai.css">
-    <script src="tema.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fcfbf9">
+<title>Redefinir senha | UAI CHEGUEI</title>
+<link rel="stylesheet" href="uai.css">
 </head>
-
 <body class="reset-page">
-
-    <div class="container">
-
-        <div class="caixa-branca">
-
-            <a href="index.html" class="voltar">
-                ← Voltar
-            </a>
-
-            <br><br>
-
-            <h1>Redefinir Senha</h1>
-
-            <p class="reset-description">
-                No UAIcheguei, o melhor app<br>
-                de comida de Minas Gerais
-            </p>
-
-            <br>
-
-            <div id="etapaEmail">
-                <p>Digite seu e-mail:</p>
-                <input
-                    type="email"
-                    id="email"
-                    class="campo-form"
-                    placeholder="Digite seu e-mail"
-                    required
-                >
-                <button
-                    type="button"
-                    class="buton-entrar"
-                    onclick="enviarCodigo()"
-                >
-                    <h2>Enviar código</h2>
-                </button>
-            </div>
-
-            <div id="etapaCodigo" hidden>
-                <p>Digite o código enviado para seu e-mail:</p>
-                <input
-                    type="text"
-                    id="codigo"
-                    class="campo-form codigo"
-                    placeholder="Digite o código"
-                    inputmode="numeric"
-                >
-                <button
-                    type="button"
-                    class="buton-entrar"
-                    onclick="verificarCodigo()"
-                >
-                    <h2>Verificar código</h2>
-                </button>
-            </div>
-
-            <div id="etapaSenha" hidden>
-                <p>Digite sua nova senha:</p>
-                <input
-                    type="password"
-                    id="senha"
-                    class="campo-form"
-                    placeholder="Digite sua nova senha"
-                >
-                <input
-                    type="password"
-                    id="confirmarSenha"
-                    class="campo-form"
-                    placeholder="Confirme sua nova senha"
-                >
-                <button
-                    type="button"
-                    class="buton-entrar"
-                    onclick="redefinirSenha()"
-                >
-                    <h2>Salvar nova senha</h2>
-                </button>
-            </div>
-
-            <p id="mensagem" aria-live="polite"></p>
-        </div>
-    </div>
-   
-
-    <script>
-        // Código de demonstração: em um sistema real, o servidor enviaria o código por e-mail.
-        const codigoCorreto = "123456";
-
-        function enviarCodigo() {
-            const email = document.getElementById("email");
-            const mensagem = document.getElementById("mensagem");
-
-            if (!email.value.trim() || !email.checkValidity()) {
-                mensagem.textContent = "Digite um e-mail válido.";
-                email.focus();
-                return;
-            }
-
-            document.getElementById("etapaCodigo").hidden = false;
-            mensagem.textContent = "Código enviado. Para teste, use 123456.";
-            document.getElementById("codigo").focus();
-        }
-
-        function verificarCodigo() {
-            const codigo = document.getElementById("codigo").value.trim();
-            const mensagem = document.getElementById("mensagem");
-
-            if (codigo !== codigoCorreto) {
-                mensagem.textContent = "Código incorreto. Confira e tente novamente.";
-                return;
-            }
-
-            document.getElementById("etapaEmail").hidden = true;
-            document.getElementById("etapaCodigo").hidden = true;
-            document.getElementById("etapaSenha").hidden = false;
-            mensagem.textContent = "Código confirmado. Agora crie sua nova senha.";
-            document.getElementById("senha").focus();
-        }
-
-        function redefinirSenha() {
-            const senha = document.getElementById("senha").value;
-            const confirmarSenha = document.getElementById("confirmarSenha").value;
-            const mensagem = document.getElementById("mensagem");
-
-            if (!senha || !confirmarSenha) {
-                mensagem.textContent = "Preencha os dois campos de senha.";
-                return;
-            }
-
-            if (senha !== confirmarSenha) {
-                mensagem.textContent = "As senhas não conferem.";
-                return;
-            }
-
-            mensagem.textContent = "Nova senha definida com sucesso.";
-        }
-    </script>
-
+<div class="theme-switch-wrap">
+<input class="theme-switch-input" type="checkbox" id="theme-toggle">
+<label class="theme-switch" for="theme-toggle" aria-label="Alternar tema claro e escuro"><span class="theme-sun">☼</span><span class="theme-moon">☾</span></label>
+</div>
+<main class="container">
+<section class="caixa-branca">
+<a href="index.html" class="voltar">← Voltar</a>
+<h1>Redefinir senha</h1>
+<p class="reset-description">Informe seu e-mail para recuperar o acesso à sua conta.</p>
+<form class="reset-form">
+<label class="reset-label" for="email">E-mail</label>
+<input type="email" id="email" class="campo-form" placeholder="Digite seu e-mail" autocomplete="email" required>
+<button type="submit" class="buton-entrar" disabled>Solicitar redefinição</button>
+<p class="static-form-note">A recuperação de senha ainda não está disponível nesta versão sem JavaScript.</p>
+</form>
+</section>
+</main>
 </body>
-
 </html>
