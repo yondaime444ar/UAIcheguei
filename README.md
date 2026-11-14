@@ -9,7 +9,7 @@ Este repositório reúne os arquivos do projeto, incluindo as páginas do site, 
 ## Integrantes do grupo
 
 - Yago Armond Oliveira
-- Rian
+- Ryan
 - Marcos
 - Nicolas Germano
 - Arthur
