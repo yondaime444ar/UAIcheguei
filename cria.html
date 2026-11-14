@@ -7,7 +7,17 @@
 
 
     <link rel="stylesheet" href="uai.css">
-    <script src="tema.js" defer></script>
+    <script src="tema.js" defer>const campoNascimento = document.getElementById("data-nascimento");
+const hoje = new Date();
+const limiteNascimento = new Date(hoje.getFullYear() - 18, hoje.getMonth(), hoje.getDate());
+const formatarData = data => {
+    const ano = data.getFullYear();
+    const mes = String(data.getMonth() + 1).padStart(2, "0");
+    const dia = String(data.getDate()).padStart(2, "0");
+    return ano + "-" + mes + "-" + dia;
+};
+campoNascimento.max = formatarData(limiteNascimento);
+</script>
 </head>
 
 <body class="register-page">
@@ -97,9 +107,23 @@ function criarConta(event) {
     const senha = document.getElementById("Senha").value;
     const confirmarSenha = document.getElementById("ConfirmarSenha").value;
     const mensagem = document.getElementById("mensagem");
+    const dataLimite = new Date();
+    dataLimite.setHours(0, 0, 0, 0);
+    dataLimite.setFullYear(dataLimite.getFullYear() - 18);
+    const dataNascimento = new Date(nascimento + "T00:00:00");
 
     if (!nome || !email || !telefone || !nascimento || !senha || !confirmarSenha) {
         mensagem.textContent = "Preencha todos os campos.";
+        return;
+    }
+
+    if (Number.isNaN(dataNascimento.getTime()) || dataNascimento > new Date(new Date().setHours(0, 0, 0, 0))) {
+        mensagem.textContent = "A data de nascimento não pode ser futura.";
+        return;
+    }
+
+    if (dataNascimento > dataLimite) {
+        mensagem.textContent = "Você precisa ter pelo menos 18 anos para criar uma conta.";
         return;
     }
 
