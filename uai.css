@@ -2071,3 +2071,115 @@ body.rider-page:has(#theme-toggle:checked) .dashboard-footer{background:#211f1d;
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+
+/* Ajustes da tela de login em celulares */
+@media (max-width: 600px) {
+    body.login-page,
+    body.login-page * {
+        box-sizing: border-box;
+    }
+
+    body.login-page {
+        width: 100%;
+        min-height: 100vh;
+        min-height: 100svh;
+        overflow-x: hidden;
+    }
+
+    body.login-page .container {
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
+        min-height: 100svh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0;
+        padding: max(76px, calc(env(safe-area-inset-top) + 64px)) 16px 28px;
+        margin: 0;
+    }
+
+    body.login-page .caixa-branca {
+        position: relative;
+        left: auto;
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+        min-height: 0;
+        margin: 0 auto;
+        padding: 28px 22px;
+        border-radius: 20px;
+    }
+
+    body.login-page .caixa-branca h1 {
+        width: 100%;
+        overflow-wrap: break-word;
+        line-height: 1.2;
+    }
+
+    body.login-page .login-welcome {
+        font-size: clamp(1.35rem, 6vw, 1.65rem);
+    }
+
+    body.login-page .login-title {
+        font-size: clamp(1.55rem, 7vw, 1.9rem);
+        letter-spacing: -0.5px;
+    }
+
+    body.login-page .login-description {
+        font-size: 0.92rem;
+        line-height: 1.5;
+    }
+
+    body.login-page .caixa-branca form {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    body.login-page .caixa-branca .campo-form {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        min-height: 48px;
+        margin: 0 0 12px;
+        padding: 13px 15px;
+        font-size: 16px;
+    }
+
+    body.login-page .caixa-branca .buton-entrar {
+        width: 100%;
+        min-height: 48px;
+        margin: 8px 0 12px;
+    }
+
+    body.login-page .caixa-branca .static-form-note {
+        margin: 8px 0 14px;
+        font-size: 0.78rem;
+    }
+
+    body.login-page .caixa-branca .esqueci,
+    body.login-page .caixa-branca .criar-conta {
+        display: block;
+        width: 100%;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    body.login-page .caixa-branca .criar-conta {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    body.login-page .container {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    body.login-page .caixa-branca {
+        padding: 24px 17px;
+    }
+}
