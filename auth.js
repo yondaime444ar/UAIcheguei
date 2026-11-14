@@ -1,12 +1,6 @@
-const senhaPadrao = "12345678";
 const chaveContas = "uai_cheguei_contas";
 const chaveSessao = "uai_cheguei_sessao";
-
-async function gerarHash(senha) {
-    const dados = new TextEncoder().encode(senha);
-    const resultado = await crypto.subtle.digest("SHA-256", dados);
-    return Array.from(new Uint8Array(resultado)).map(valor => valor.toString(16).padStart(2, "0")).join("");
-}
+const senhaPadrao = "12345678";
 
 function carregarContas() {
     return JSON.parse(localStorage.getItem(chaveContas) || "[]");
@@ -16,25 +10,23 @@ function salvarContas(contas) {
     localStorage.setItem(chaveContas, JSON.stringify(contas));
 }
 
-async function prepararContas() {
+function prepararContas() {
     const contas = carregarContas();
-    const hash = await gerarHash(senhaPadrao);
-    const padrao = [
-        { nome: "Administrador", email: "admin@uaicheguei.com", tipo: "administrador", senha: hash },
-        { nome: "Cliente de teste", email: "cliente@uaicheguei.com", tipo: "cliente", senha: hash },
-        { nome: "Entregador", email: "entregador@uaicheguei.com", tipo: "entregador", senha: hash }
+    const exemplos = [
+        { nome: "Administrador", email: "admin@uaicheguei.com", senha: senhaPadrao, tipo: "administrador" },
+        { nome: "Cliente de teste", email: "cliente@uaicheguei.com", senha: senhaPadrao, tipo: "cliente" },
+        { nome: "Entregador", email: "entregador@uaicheguei.com", senha: senhaPadrao, tipo: "entregador" }
     ];
 
-    padrao.forEach(conta => {
-        if (!contas.some(item => item.email.toLowerCase() === conta.email)) {
-            contas.push(conta);
-        }
+    exemplos.forEach(exemplo => {
+        const existe = contas.some(conta => conta.email.toLowerCase() === exemplo.email);
+        if (!existe) contas.push(exemplo);
     });
 
     salvarContas(contas);
 }
 
-function abrirPainel(tipo) {
+function direcionarUsuario(tipo) {
     if (tipo === "administrador") {
         window.location.href = "intranet_adm.html";
     } else if (tipo === "entregador") {
@@ -44,12 +36,14 @@ function abrirPainel(tipo) {
     }
 }
 
-async function entrar(evento) {
+function entrar(evento) {
     evento.preventDefault();
+
     const email = document.getElementById("Email").value.trim().toLowerCase();
     const senha = document.getElementById("Senha").value;
-    const hash = await gerarHash(senha);
-    const conta = carregarContas().find(item => item.email.toLowerCase() === email && item.senha === hash);
+    const conta = carregarContas().find(usuario =>
+        usuario.email.toLowerCase() === email && usuario.senha === senha
+    );
 
     if (!conta) {
         alert("E-mail ou senha incorretos.");
@@ -62,51 +56,53 @@ async function entrar(evento) {
         tipo: conta.tipo
     }));
 
-    abrirPainel(conta.tipo);
+    direcionarUsuario(conta.tipo);
 }
 
-async function cadastrar(evento) {
+function cadastrar(evento) {
     evento.preventDefault();
+
     const nome = document.getElementById("nome").value.trim();
     const email = document.getElementById("Email").value.trim().toLowerCase();
+    const telefone = document.getElementById("telefone").value.trim();
+    const nascimento = document.getElementById("data-nascimento").value;
     const contas = carregarContas();
 
     if (contas.some(conta => conta.email.toLowerCase() === email)) {
-        alert("Já existe uma conta cadastrada com este e-mail.");
+        alert("Já existe uma conta com este e-mail.");
         return;
     }
 
     contas.push({
-        nome,
-        email,
-        telefone: document.getElementById("telefone").value.trim(),
-        nascimento: document.getElementById("data-nascimento").value,
-        tipo: "cliente",
-        senha: await gerarHash(senhaPadrao)
+        nome: nome,
+        email: email,
+        telefone: telefone,
+        nascimento: nascimento,
+        senha: senhaPadrao,
+        tipo: "cliente"
     });
 
     salvarContas(contas);
-    sessionStorage.setItem(chaveSessao, JSON.stringify({ nome, email, tipo: "cliente" }));
-    alert("Conta criada! A senha padrão é 12345678.");
+    sessionStorage.setItem(chaveSessao, JSON.stringify({
+        nome: nome,
+        email: email,
+        tipo: "cliente"
+    }));
+
+    alert("Cadastro realizado! Sua senha de demonstração é 12345678.");
     window.location.href = "principal.html";
 }
 
-function protegerPagina(tipo) {
-    let sessao;
-
-    try {
-        sessao = JSON.parse(sessionStorage.getItem(chaveSessao) || "null");
-    } catch {
-        sessao = null;
-    }
+function protegerPagina(tipoPermitido) {
+    const sessao = JSON.parse(sessionStorage.getItem(chaveSessao) || "null");
 
     if (!sessao) {
         window.location.replace("index.html");
         return;
     }
 
-    if (tipo && sessao.tipo !== tipo) {
-        abrirPainel(sessao.tipo);
+    if (tipoPermitido && sessao.tipo !== tipoPermitido) {
+        direcionarUsuario(sessao.tipo);
     }
 }
 
@@ -115,30 +111,17 @@ function sair() {
     window.location.href = "index.html";
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-    await prepararContas();
+document.addEventListener("DOMContentLoaded", function () {
+    prepararContas();
 
-    const formularioLogin = document.querySelector(".login-page form");
-    const formularioCadastro = document.querySelector(".register-page form");
+    const formularioLogin = document.getElementById("formulario-login");
+    const formularioCadastro = document.getElementById("formulario-cadastro");
 
     if (formularioLogin) {
         formularioLogin.addEventListener("submit", entrar);
     }
 
     if (formularioCadastro) {
-        const senha = document.getElementById("Senha");
-        const confirmacao = document.getElementById("ConfirmarSenha");
-
-        if (senha) {
-            senha.value = senhaPadrao;
-            senha.readOnly = true;
-        }
-
-        if (confirmacao) {
-            confirmacao.value = senhaPadrao;
-            confirmacao.readOnly = true;
-        }
-
         formularioCadastro.addEventListener("submit", cadastrar);
     }
 
@@ -154,8 +137,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         protegerPagina("entregador");
     }
 
-    document.querySelectorAll(".avatar").forEach(link => {
-        link.addEventListener("click", evento => {
+    document.querySelectorAll(".avatar").forEach(function (link) {
+        link.addEventListener("click", function (evento) {
             evento.preventDefault();
             sair();
         });
