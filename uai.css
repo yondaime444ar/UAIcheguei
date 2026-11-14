@@ -1925,6 +1925,10 @@ body.reset-page[data-theme="dark"] {
 
 
 .theme-switch-wrap{position:fixed;top:18px;right:18px;z-index:1000}
+.theme-switch-wrap.theme-switch-inline{position:static;top:auto;right:auto;z-index:auto;display:flex;align-items:center;flex-shrink:0}
+.theme-switch-wrap.theme-switch-inline .theme-switch{width:34px;height:34px;font-size:19px;box-shadow:none;border-color:rgba(120,90,65,.2)}
+.theme-switch-wrap.theme-switch-inline .theme-switch:hover{transform:scale(1.06)}
+@media(max-width:640px){.theme-switch-wrap.theme-switch-inline .theme-switch{width:30px;height:30px;font-size:17px}}
 .theme-switch-input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
 .theme-switch{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(120,90,65,.24);border-radius:50%;background:#fffaf5;color:#8b6247;box-shadow:0 5px 18px rgba(40,25,12,.16);cursor:pointer;font-size:25px;line-height:1;transition:transform .2s,background .2s,color .2s}
 .theme-switch:hover{transform:translateY(-2px) rotate(8deg);background:#fff0e5}
