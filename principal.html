@@ -20,7 +20,7 @@
         <img class="brand-logo" data-uai-logo src="imagens/logotipo-horizontal.svg" alt="UAI CHEGUEI">
       </a>
       <div class="delivery-address"><span class="address-icon">⌖</span><span><small>ENTREGAR EM</small><strong>Minha localização</strong></span><span class="chevron">⌄</span></div>
-      <label class="search-box"><span aria-hidden="true">⌕</span><input type="search" placeholder="Busca indisponível nesta versão" aria-label="Busca indisponível" disabled><kbd>⌕</kbd></label>
+      <label class="search-box"><span aria-hidden="true">⌕</span><input type="search" placeholder="Buscar no cardápio" aria-label="Buscar produtos"><kbd>⌕</kbd></label>
       <nav class="header-actions" aria-label="Ações da conta">
         <span class="header-link"><span>♡</span><small>Favoritos</small></span>
         <div class="theme-switch-wrap theme-switch-inline">
@@ -71,8 +71,8 @@
       </div>
       <div class="product-grid" id="productGrid">
         <article class="product-card" id="produto-burger" data-id="burger" data-name="Uai Burger" data-category="Hambúrguer" data-price="29.90" data-description="Pão brioche, burger artesanal, queijo e molho da casa." data-image="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80">
-          <div class="product-image"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80" alt="Uai Burger artesanal" loading="lazy"><span class="product-tag">MAIS PEDIDO</span><span class="favorite-button" aria-hidden="true">♡</span></div>
-          <div class="product-info"><span class="product-category">HAMBÚRGUER</span><h3>Uai Burger</h3><p>Pão brioche, burger artesanal, queijo e molho da casa.</p><div class="product-bottom"><strong>R$ 29,90</strong><span class="add-button" aria-hidden="true">+</span></div></div>
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80" alt="Uai Burger artesanal" loading="lazy"><span class="product-tag">MAIS PEDIDO</span><button class="favorite-button" type="button" aria-label="Adicionar aos favoritos">♡</button></div>
+          <div class="product-info"><span class="product-category">HAMBÚRGUER</span><h3>Uai Burger</h3><p>Pão brioche, burger artesanal, queijo e molho da casa.</p><div class="product-bottom"><strong>R$ 29,90</strong><button class="add-button" type="button" aria-label="Adicionar ao carrinho">+</button></div></div>
         </article>
         <article class="product-card" id="produto-pizza" data-id="pizza" data-name="Pizza da Casa" data-category="Pizza" data-price="42.00" data-description="Massa artesanal, queijo derretido e molho especial." data-image="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=700&q=80">
           <div class="product-image"><img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=700&q=80" alt="Pizza artesanal" loading="lazy"><span class="product-tag tag-green">FEITA NA HORA</span><span class="favorite-button" aria-hidden="true">♡</span></div>
@@ -95,7 +95,7 @@
           <div class="product-info"><span class="product-category">BEBIDA</span><h3>Suco Natural</h3><p>Suco natural geladinho, feito na hora.</p><div class="product-bottom"><strong>R$ 8,50</strong><span class="add-button" aria-hidden="true">+</span></div></div>
         </article>
       </div>
-      <p class="empty-results">Os filtros e a busca estarão disponíveis quando o sistema tiver processamento.</p>
+      <p class="empty-results" hidden>Nenhum produto encontrado. Tente outra busca ou categoria.</p>
     </section>
 
     <section class="closing-banner wrap">
@@ -105,6 +105,6 @@
   </main>
   <footer class="site-footer"><div class="wrap footer-inner"><a class="footer-brand" href="principal.html">UAI <b>CHEGUEI</b></a><p>Comida boa, chegando com carinho.</p><small>© 2026 UAI CHEGUEI. Projeto demonstrativo.</small><a href="index.html">Minha conta</a></div></footer>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="auth.js"></script>
+  <script src="app.js?v=1" defer></script>
 </body>
 </html>
