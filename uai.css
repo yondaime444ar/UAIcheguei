@@ -2244,3 +2244,12 @@ body.login-page .caixa-branca button {
         width: 100%;
     }
 }
+
+
+body.login-page:has(#theme-toggle:checked) {
+    background-color: #3b2416;
+    background-image: linear-gradient(rgba(48, 27, 14, 0.72), rgba(48, 27, 14, 0.72)), url("https://uploads.onecompiler.io/44g7ujbgc/1787313298296/ChatGPT%20Image%2021%20de%20ago.%20de%202026,%2008_45_55.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
