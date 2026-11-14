@@ -56,11 +56,11 @@ Novos cadastros são criados como clientes e também recebem a senha padrão. Os
 
 1. Faça o download ou clone este repositório.
 2. Abra a pasta do projeto em um editor de código, como o Visual Studio Code.
-3. Abra o arquivo `index.html` em um navegador para visualizar a página inicial.
+3. Abra o arquivo `index.html` em um navegador para visualizar a página inicial. O JavaScript do projeto está centralizado em `app.js`.
 
 ## Observação
 
-Este repositório representa um projeto acadêmico em desenvolvimento. Algumas telas e funcionalidades são demonstrações visuais e podem não possuir integração com um sistema de autenticação, banco de dados ou serviços reais.
+Este repositório representa um projeto acadêmico em desenvolvimento. As contas, pedidos, favoritos, carrinho e metas ficam salvos no armazenamento local do navegador. Não existe servidor ou banco de dados compartilhado; portanto, os dados não são sincronizados entre dispositivos e a autenticação não oferece segurança real.
 
 ---
 
