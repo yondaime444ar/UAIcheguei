@@ -12,10 +12,7 @@
   <link rel="stylesheet" href="uai.css">
 </head>
 <body class="store-page" data-page="store">
-<div class="theme-switch-wrap">
-<input class="theme-switch-input" type="checkbox" id="theme-toggle">
-<label class="theme-switch" for="theme-toggle" aria-label="Alternar tema claro e escuro"><span class="theme-sun">☼</span><span class="theme-moon">☾</span></label>
-</div>
+
   <div class="top-strip">UAI, que fome! <span>Peça seu favorito sem sair de casa.</span></div>
   <header class="site-header">
     <div class="header-main wrap">
@@ -26,6 +23,10 @@
       <label class="search-box"><span aria-hidden="true">⌕</span><input type="search" placeholder="Busca indisponível nesta versão" aria-label="Busca indisponível" disabled><kbd>⌕</kbd></label>
       <nav class="header-actions" aria-label="Ações da conta">
         <span class="header-link"><span>♡</span><small>Favoritos</small></span>
+        <div class="theme-switch-wrap theme-switch-inline">
+<input class="theme-switch-input" type="checkbox" id="theme-toggle">
+<label class="theme-switch" for="theme-toggle" aria-label="Alternar tema claro e escuro"><span class="theme-sun">☼</span><span class="theme-moon">☾</span></label>
+</div>
         <a class="header-link cart-link" href="carrinho.html"><span aria-hidden="true">▣</span><small>Carrinho</small><b id="cartCount">0</b></a>
         <a class="profile-link" href="index.html" aria-label="Minha conta">U</a>
       </nav>
