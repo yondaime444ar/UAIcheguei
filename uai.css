@@ -8,13 +8,12 @@
         }
 
         :is(body.login-page){
-background-image: url(https://uploads.onecompiler.io/44g7ujbgc/1787313298296/ChatGPT%20Image%2021%20de%20ago.%20de%202026,%2008_45_55.png);
-
             background-color: #e15800;
-            background-image: url(https://uploads.onecompiler.io/44g7ujbgc/1783699274529/C%C3%B3pia%20de%20UAIcheguei%20(1).png);
+            background-image: url("https://uploads.onecompiler.io/44g7ujbgc/1787313298296/ChatGPT%20Image%2021%20de%20ago.%20de%202026,%2008_45_55.png");
             background-size: cover;
             background-position: center;
-            font-family: Arial;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
         }
 
         :is(body.login-page) .campo-form{
