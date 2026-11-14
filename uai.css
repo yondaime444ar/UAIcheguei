@@ -1922,3 +1922,152 @@ body.reset-page[data-theme="dark"] {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+
+.theme-switch-wrap{position:fixed;top:18px;right:18px;z-index:1000}
+.theme-switch-input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.theme-switch{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(120,90,65,.24);border-radius:50%;background:#fffaf5;color:#8b6247;box-shadow:0 5px 18px rgba(40,25,12,.16);cursor:pointer;font-size:25px;line-height:1;transition:transform .2s,background .2s,color .2s}
+.theme-switch:hover{transform:translateY(-2px) rotate(8deg);background:#fff0e5}
+.theme-switch .theme-moon{display:none}
+.theme-switch-input:checked+.theme-switch .theme-sun{display:none}
+.theme-switch-input:checked+.theme-switch .theme-moon{display:inline}
+.theme-switch-input:focus-visible+.theme-switch{outline:3px solid #ff6e1c;outline-offset:3px}
+.static-form-note{margin:14px 0 0;color:#76695f;font-size:.84rem;line-height:1.5;text-align:center}
+body.login-page .login-welcome{color:#ff6e1c}
+body.login-page .laranja{color:#ff6e1c}
+body.login-page .buton-entrar,body.register-page .botao{background:#ff6e1c}
+body.login-page .buton-entrar:hover,body.register-page .botao:hover{background:#e85d0b}
+body.register-page .form-box{width:min(470px,100%);max-height:calc(100vh - 40px);overflow:auto}
+body.register-page .campo-form:invalid:not(:placeholder-shown){border-color:#c94b3c}
+body.register-page .campo-form:valid:not(:placeholder-shown){border-color:#65a47a}
+body.login-page .campo-form:invalid:not(:placeholder-shown){border-color:#c94b3c}
+body.login-page .campo-form:valid:not(:placeholder-shown){border-color:#65a47a}
+body.login-page .container{width:100%;max-width:1440px;margin:auto}
+body.login-page .caixa-branca{width:min(440px,100%)}
+body.login-page .uai_imagem{width:min(52%,650px)}
+body.login-page .uai_imagem img{max-width:100%}
+body.register-page .form-box .botao{min-height:48px}
+body.reset-page .container{width:100%;padding:70px 16px 28px;align-items:center}
+body.reset-page .caixa-branca{width:min(460px,100%)}
+body.reset-page .reset-label{display:block;text-align:left;margin:14px 4px 6px;font-weight:600;color:#65594f}
+body.reset-page .buton-entrar:disabled,body.rider-page button:disabled,body.owner-page button:disabled{opacity:.55;cursor:not-allowed;box-shadow:none}
+body.store-page .category-nav{display:flex;gap:10px;overflow-x:auto;scrollbar-width:thin;padding-top:12px;padding-bottom:12px}
+body.store-page .category-pill{flex:0 0 auto;text-decoration:none;transition:background .2s,color .2s,transform .2s}
+body.store-page .category-pill:hover{transform:translateY(-2px)}
+body.store-page .product-card{transition:transform .22s ease,box-shadow .22s ease}
+body.store-page .product-card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(48,30,15,.12)}
+body.store-page .product-card img{transition:transform .35s ease}
+body.store-page .product-card:hover img{transform:scale(1.035)}
+body.store-page .favorite-button,body.store-page .add-button{display:grid;place-items:center}
+body.store-page .search-box input:disabled{opacity:.7;cursor:not-allowed}
+body.store-page .header-actions{flex-wrap:wrap}
+body.cart-page-body .cart-page{min-height:60vh}
+body.cart-page-body #cartItems{padding:22px 0}
+body.owner-page .dashboard-header-inner,body.rider-page .dashboard-header-inner{flex-wrap:wrap}
+body.owner-page .header-right,body.rider-page .header-right{flex-wrap:wrap}
+body.owner-page .bonus-form input[readonly]{cursor:default}
+body.login-page:has(#theme-toggle:checked),
+body.register-page:has(#theme-toggle:checked),
+body.reset-page:has(#theme-toggle:checked){color-scheme:dark;background-color:#211f1d;background-image:linear-gradient(135deg,rgba(20,18,16,.76),rgba(35,29,24,.64)),url("https://uploads.onecompiler.io/44g7ujbgc/1787313298296/ChatGPT%20Image%2021%20de%20ago.%20de%202026,%2008_45_55.png")}
+body.login-page:has(#theme-toggle:checked) .caixa-branca,
+body.reset-page:has(#theme-toggle:checked) .caixa-branca,
+body.register-page:has(#theme-toggle:checked) .form-box{background:#292522;color:#eee8e2;border-color:#51463d}
+body.login-page:has(#theme-toggle:checked) .caixa-branca p,
+body.reset-page:has(#theme-toggle:checked) .caixa-branca p,
+body.register-page:has(#theme-toggle:checked) .form-box p,
+body.register-page:has(#theme-toggle:checked) .data-label,
+body.reset-page:has(#theme-toggle:checked) .reset-label{color:#d0c5bb}
+body.login-page:has(#theme-toggle:checked) .login-title,
+body.reset-page:has(#theme-toggle:checked) .caixa-branca h1,
+body.register-page:has(#theme-toggle:checked) .form-box h1{color:#f2ece6}
+body.login-page:has(#theme-toggle:checked) .campo-form,
+body.reset-page:has(#theme-toggle:checked) .campo-form,
+body.register-page:has(#theme-toggle:checked) .campo-form{background:#211f1d;color:#f2eae3;border-color:#514941}
+body.login-page:has(#theme-toggle:checked) .esqueci,
+body.reset-page:has(#theme-toggle:checked) .voltar,
+body.register-page:has(#theme-toggle:checked) .voltar{color:#e5b28f}
+body:has(#theme-toggle:checked) .theme-switch{background:#39332e;border-color:#594b40;color:#f0c6a7}
+body.store-page:has(#theme-toggle:checked),body.cart-page-body:has(#theme-toggle:checked){color-scheme:dark;background:#211f1d;color:#eee8e2}
+body.store-page:has(#theme-toggle:checked) .site-header,
+body.cart-page-body:has(#theme-toggle:checked) .site-header{background:#292522;border-color:#45403a}
+body.store-page:has(#theme-toggle:checked) .top-strip{background:#332b25;color:#f1c5a5}
+body.store-page:has(#theme-toggle:checked) .hero-copy h1,
+body.store-page:has(#theme-toggle:checked) .section-heading h2,
+body.store-page:has(#theme-toggle:checked) .cart-page-title strong,
+body.cart-page-body:has(#theme-toggle:checked) .cart-heading h1,
+body.cart-page-body:has(#theme-toggle:checked) .summary-panel h2{color:#f2ece6}
+body.store-page:has(#theme-toggle:checked) .hero-copy p,
+body.store-page:has(#theme-toggle:checked) .section-heading p,
+body.cart-page-body:has(#theme-toggle:checked) .cart-heading p{color:#bdb2a8}
+body.store-page:has(#theme-toggle:checked) .product-card,
+body.cart-page-body:has(#theme-toggle:checked) .cart-list-panel,
+body.cart-page-body:has(#theme-toggle:checked) .summary-panel{background:#2c2926;border-color:#45403a;color:#eee8e2}
+body.store-page:has(#theme-toggle:checked) .product-info h3,
+body.store-page:has(#theme-toggle:checked) .product-info p,
+body.store-page:has(#theme-toggle:checked) .product-bottom strong,
+body.cart-page-body:has(#theme-toggle:checked) .summary-line,
+body.cart-page-body:has(#theme-toggle:checked) .secure-note{color:#eee8e2}
+body.store-page:has(#theme-toggle:checked) .category-nav{background:#292522}
+body.store-page:has(#theme-toggle:checked) .category-pill{background:#39332e;color:#e9ddd3;border-color:#514941}
+body.store-page:has(#theme-toggle:checked) .site-footer,
+body.cart-page-body:has(#theme-toggle:checked) .site-footer{background:#211f1d;border-color:#45403a;color:#bdb2a8}
+body.owner-page:has(#theme-toggle:checked),body.rider-page:has(#theme-toggle:checked){color-scheme:dark;background:#211f1d;color:#eee8e2}
+body.owner-page:has(#theme-toggle:checked) .dashboard-header,
+body.rider-page:has(#theme-toggle:checked) .dashboard-header{background:#292522;border-color:#45403a}
+body.owner-page:has(#theme-toggle:checked) .header-title strong,
+body.owner-page:has(#theme-toggle:checked) .welcome-row h1,
+body.rider-page:has(#theme-toggle:checked) .header-title strong,
+body.rider-page:has(#theme-toggle:checked) .rider-welcome h1,
+body.owner-page:has(#theme-toggle:checked) .panel-heading h2,
+body.rider-page:has(#theme-toggle:checked) .panel-heading h2{color:#eee8e2}
+body.owner-page:has(#theme-toggle:checked) .metric-card,
+body.owner-page:has(#theme-toggle:checked) .panel,
+body.rider-page:has(#theme-toggle:checked) .metric-card,
+body.rider-page:has(#theme-toggle:checked) .panel{background:#2c2926;border-color:#45403a;color:#eee8e2}
+body.owner-page:has(#theme-toggle:checked) .metric-label,
+body.owner-page:has(#theme-toggle:checked) .welcome-row p,
+body.owner-page:has(#theme-toggle:checked) .panel-description,
+body.rider-page:has(#theme-toggle:checked) .metric-label,
+body.rider-page:has(#theme-toggle:checked) .rider-welcome p{color:#b8aea5}
+body.owner-page:has(#theme-toggle:checked) .bonus-form label,
+body.rider-page:has(#theme-toggle:checked) .reward-explanation p{color:#d8cec5}
+body.owner-page:has(#theme-toggle:checked) .bonus-form input{background:#211f1d;border-color:#514941;color:#f2eae3}
+body.owner-page:has(#theme-toggle:checked) .notice-panel,
+body.rider-page:has(#theme-toggle:checked) .notice-panel{background:#302e29;border-color:#4a443d}
+body.owner-page:has(#theme-toggle:checked) .dashboard-footer,
+body.rider-page:has(#theme-toggle:checked) .dashboard-footer{background:#211f1d;border-color:#45403a;color:#a99f96}
+@media(max-width:760px){
+ body.login-page .container{min-height:100vh;flex-direction:column;justify-content:center;gap:22px;padding:76px 18px 28px}
+ body.login-page .uai_imagem{display:none}
+ body.login-page .caixa-branca{width:min(440px,100%);padding:30px 24px}
+ body.register-page{padding:76px 16px 24px}
+ body.register-page .form-box{max-height:none;padding:58px 22px 26px}
+ body.reset-page .container{padding-top:78px}
+ body.store-page .header-main{gap:12px;flex-wrap:wrap}
+ body.store-page .brand{flex:0 0 auto}
+ body.store-page .delivery-address{order:3}
+ body.store-page .search-box{order:4;width:100%;max-width:none}
+ body.store-page .header-actions{order:2;margin-left:auto}
+ body.store-page .hero{grid-template-columns:1fr;gap:26px}
+ body.store-page .hero-art{max-width:540px;margin:auto}
+ body.store-page .benefits{grid-template-columns:1fr;gap:10px}
+ body.store-page .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.store-page .footer-inner{flex-wrap:wrap;gap:14px}
+ body.cart-page-body .cart-layout{grid-template-columns:1fr}
+ body.cart-page-body .cart-heading{align-items:flex-start;flex-direction:column}
+ body.owner-page .dashboard-header-inner,body.rider-page .dashboard-header-inner{gap:12px;padding:14px 16px}
+ body.owner-page .header-right,body.rider-page .header-right{width:100%;justify-content:flex-start}
+ body.owner-page .dashboard-columns{grid-template-columns:1fr}
+}
+@media(max-width:420px){
+ body.login-page .caixa-branca{padding:26px 18px}
+ body.register-page .form-box{padding-left:18px;padding-right:18px}
+ body.store-page .product-grid{grid-template-columns:1fr}
+ body.store-page .header-actions small{display:none}
+ body.cart-page-body .summary-panel{padding:20px 16px}
+ .theme-switch-wrap{top:12px;right:12px}
+ .theme-switch{width:40px;height:40px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
