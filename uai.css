@@ -2257,3 +2257,22 @@ body.login-page:has(#theme-toggle:checked) {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+/* Interacoes e transicoes da demonstracao */
+html{scroll-behavior:smooth}
+body,button,a,input,.product-card,.site-header,.dashboard-header,.metric-card,.panel,.form-box,.caixa-branca{transition:background-color .28s ease,color .22s ease,border-color .22s ease,box-shadow .25s ease,transform .22s ease}
+button:not(:disabled),.add-button,.favorite-button{cursor:pointer}
+.favorite-button{display:grid;place-items:center;border:0}
+.favorite-button[aria-pressed="true"]{color:#e84f63}
+.add-button{display:grid;place-items:center;border:0;border-radius:50%}
+.favorite-count{display:inline-grid;place-items:center;min-width:17px;height:17px;padding:0 4px;border-radius:20px;background:#e84f63;color:#fff;font-size:9px}
+.empty-results[hidden]{display:none}
+.toast{opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .22s ease,transform .22s ease}
+.toast.show{opacity:1;transform:translateY(0)}
+.product-card[hidden]{display:none!important}
+.product-card .add-button:active,.favorite-button:active,.theme-switch:active{transform:scale(.94)}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid rgba(255,110,28,.42);outline-offset:3px}
+.progress-track>span{transition:width .55s cubic-bezier(.2,.7,.2,1)}
+.cart-item{animation:cart-enter .24s ease both}
+@keyframes cart-enter{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
