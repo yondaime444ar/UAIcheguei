@@ -9,10 +9,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link rel="stylesheet" href="uai.css">
-<script src="painel.js" defer></script>
-<script src="tema.js" defer></script>
 </head>
 <body class="owner-page" data-panel="owner">
+<div class="theme-switch-wrap">
+<input class="theme-switch-input" type="checkbox" id="theme-toggle" readonly>
+<label class="theme-switch" for="theme-toggle" aria-label="Alternar tema claro e escuro"><span class="theme-sun">☼</span><span class="theme-moon">☾</span></label>
+</div>
 <header class="dashboard-header"><div class="dashboard-header-inner">
 <a class="dashboard-brand" href="principal.html"><img class="brand-logo" data-uai-logo src="logo-horizontal.svg" alt="UAI CHEGUEI"></a>
 <div class="header-title"><span>GESTÃO DA OPERAÇÃO</span><strong>Painel do proprietário</strong></div>
@@ -33,13 +35,13 @@
 </div>
 <div class="panel settings-panel"><div class="panel-heading"><div><span class="overline">INCENTIVOS</span><h2>Configurar bonificações</h2></div><span class="settings-icon">AJUSTES</span></div>
 <p class="panel-description">Defina valores de referência para cada faixa de entregas concluídas.</p>
-<form id="bonusForm" class="bonus-form">
-<label>Meta semanal de entregas<input id="weeklyGoal" type="number" min="1" max="300" value="30" required></label>
-<div class="form-two"><label>Faixa 1 · entregas<input id="tier1Count" type="number" min="1" max="300" value="10" required></label><label>Bônus (R$)<input id="tier1Bonus" type="number" min="0" step="0.5" value="30" required></label></div>
-<div class="form-two"><label>Faixa 2 · entregas<input id="tier2Count" type="number" min="1" max="300" value="20" required></label><label>Bônus (R$)<input id="tier2Bonus" type="number" min="0" step="0.5" value="80" required></label></div>
-<div class="form-two"><label>Faixa 3 · entregas<input id="tier3Count" type="number" min="1" max="300" value="30" required></label><label>Bônus (R$)<input id="tier3Bonus" type="number" min="0" step="0.5" value="150" required></label></div>
-<button class="primary-action" type="submit">Salvar regras de demonstração</button><p class="form-feedback" id="settingsFeedback" role="status"></p>
-</form>
+<div class="bonus-form">
+<label>Meta semanal de entregas<input id="weeklyGoal" type="number" min="1" max="300" value="30" required readonly></label>
+<div class="form-two"><label>Faixa 1 · entregas<input id="tier1Count" type="number" min="1" max="300" value="10" required readonly></label><label>Bônus (R$)<input id="tier1Bonus" type="number" min="0" step="0.5" value="30" required readonly></label></div>
+<div class="form-two"><label>Faixa 2 · entregas<input id="tier2Count" type="number" min="1" max="300" value="20" required readonly></label><label>Bônus (R$)<input id="tier2Bonus" type="number" min="0" step="0.5" value="80" required readonly></label></div>
+<div class="form-two"><label>Faixa 3 · entregas<input id="tier3Count" type="number" min="1" max="300" value="30" required readonly></label><label>Bônus (R$)<input id="tier3Bonus" type="number" min="0" step="0.5" value="150" required readonly></label></div>
+<button class="primary-action" type="button" disabled>Configuração demonstrativa</button><p class="form-feedback">Os valores exibidos são ilustrativos e não podem ser alterados nesta versão.</p>
+</div>
 </div>
 </section>
 <section class="panel team-panel"><div class="panel-heading"><div><span class="overline">EQUIPE</span><h2>Visão do entregador</h2></div><a class="text-link" href="intranet_entregador.html">Abrir painel do entregador ↗</a></div>
