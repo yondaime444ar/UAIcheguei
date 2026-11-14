@@ -36,11 +36,11 @@
 <div class="panel settings-panel"><div class="panel-heading"><div><span class="overline">INCENTIVOS</span><h2>Configurar bonificações</h2></div><span class="settings-icon">AJUSTES</span></div>
 <p class="panel-description">Defina valores de referência para cada faixa de entregas concluídas.</p>
 <div class="bonus-form">
-<label>Meta semanal de entregas<input id="weeklyGoal" type="number" min="1" max="300" value="30" required readonly></label>
-<div class="form-two"><label>Faixa 1 · entregas<input id="tier1Count" type="number" min="1" max="300" value="10" required readonly></label><label>Bônus (R$)<input id="tier1Bonus" type="number" min="0" step="0.5" value="30" required readonly></label></div>
-<div class="form-two"><label>Faixa 2 · entregas<input id="tier2Count" type="number" min="1" max="300" value="20" required readonly></label><label>Bônus (R$)<input id="tier2Bonus" type="number" min="0" step="0.5" value="80" required readonly></label></div>
-<div class="form-two"><label>Faixa 3 · entregas<input id="tier3Count" type="number" min="1" max="300" value="30" required readonly></label><label>Bônus (R$)<input id="tier3Bonus" type="number" min="0" step="0.5" value="150" required readonly></label></div>
-<button class="primary-action" type="button" disabled>Configuração demonstrativa</button><p class="form-feedback">Os valores exibidos são ilustrativos e não podem ser alterados nesta versão.</p>
+<label>Meta semanal de entregas<input id="weeklyGoal" type="number" min="1" max="300" value="30" required></label>
+<div class="form-two"><label>Faixa 1 · entregas<input id="tier1Count" type="number" min="1" max="300" value="10" required></label><label>Bônus (R$)<input id="tier1Bonus" type="number" min="0" step="0.5" value="30" required></label></div>
+<div class="form-two"><label>Faixa 2 · entregas<input id="tier2Count" type="number" min="1" max="300" value="20" required></label><label>Bônus (R$)<input id="tier2Bonus" type="number" min="0" step="0.5" value="80" required></label></div>
+<div class="form-two"><label>Faixa 3 · entregas<input id="tier3Count" type="number" min="1" max="300" value="30" required></label><label>Bônus (R$)<input id="tier3Bonus" type="number" min="0" step="0.5" value="150" required></label></div>
+<button class="primary-action" type="button">Salvar configurações</button><p class="form-feedback">As metas são salvas apenas neste navegador para a demonstração.</p>
 </div>
 </div>
 </section>
@@ -50,6 +50,6 @@
 <section class="notice-panel"><span class="notice-mark">i</span><div><strong>Boas práticas para uma bonificação justa</strong><p>Além da quantidade, considere qualidade do atendimento, avaliações, segurança no trânsito e condições de trabalho. Não incentive velocidade perigosa. Formalize regras, período de apuração e critérios antes de oferecer pagamentos reais.</p></div></section>
 </main>
 <footer class="dashboard-footer"><span>UAI CHEGUEI · Painel de gestão</span><span>Esta versão apresenta apenas informações ilustrativas.</span></footer>
-<script src="auth.js"></script>
+<script src="app.js?v=1" defer></script>
 </body>
 </html>
