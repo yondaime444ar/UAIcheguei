@@ -23,7 +23,7 @@
 
     <p>Crie sua conta UAIcheguei</p>
 
-    <form>
+    <form id="formulario-cadastro">
 
         <input
             class="campo-form"
@@ -72,9 +72,10 @@
             class="campo-form"
             id="Senha"
             type="password"
-            minlength="8"
+            value="12345678"
             autocomplete="new-password"
-            placeholder="Senha"
+            placeholder="Senha padrão"
+            readonly
             required
         >
 
@@ -82,9 +83,10 @@
             class="campo-form"
             id="ConfirmarSenha"
             type="password"
-            minlength="8"
+            value="12345678"
             autocomplete="new-password"
             placeholder="Confirme sua senha"
+            readonly
             required
         >
 
@@ -95,12 +97,13 @@
             Criar conta
         </button>
 
-        <p class="static-form-note">Preencha os campos obrigatórios. A validação é feita pelo navegador, mas os dados não são salvos nesta versão.</p>
+        <p class="static-form-note">Senha padrão para todas as contas demonstrativas: 12345678.</p>
 
     </form>
 
 </main>
  
 
+    <script src="auth.js"></script>
 </body>
 </html>
