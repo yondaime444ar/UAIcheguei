@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Administrador geral | UAIcheguei</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../css/global/cliente-topo.css">
+        <link rel="stylesheet" href="../css/global/rodape.css">
+        <link rel="stylesheet" href="../css/global/responsivo.css">
+        <link rel="stylesheet" href="../css/global/fluxo-uai.css">
+        <link rel="stylesheet" href="../css/global/tema-escuro.css">
+        <link rel="stylesheet" href="../css/paineis/admin-novo.css">
+        <link rel="stylesheet" href="../css/global/logo-global.css">
+        <link rel="stylesheet" href="../css/global/dados-demo.css">
+        <link rel="stylesheet" href="../css/paineis/admin-controles.css">
+        <link rel="stylesheet" href="../css/global/intranet-cores.css">
+        <link rel="stylesheet" href="../css/paineis/admin-visual.css?v=1">
+        <link rel="stylesheet" href="../css/global/topo-mobile.css?v=2">
+    </head>
+    <body>
+        <main class="adm-layout">
+            <aside class="adm-sidebar">
+                <a class="adm-brand" href="admin.html"><img src="../img/logo.png" alt=""><strong>UAIcheguei</strong> </a>
+                <div class="adm-sidebar-intro">
+                    <span class="adm-sidebar-label">PAINEL DE CONTROLE</span><strong>Administração geral</strong><small>Gerencie sua plataforma</small>
+                </div>
+                <nav class="adm-nav" aria-label="Administração">
+                    <a class="ativo" href="#dashboard" data-aba="dashboard"><span class="adm-nav-icone" aria-hidden="true">▦</span><span class="adm-nav-texto">Visão geral</span></a>
+                    <a href="#pedidos" data-aba="pedidos"><span class="adm-nav-icone" aria-hidden="true">▤</span><span class="adm-nav-texto">Pedidos</span></a>
+                    <a href="#clientes" data-aba="clientes"><span class="adm-nav-icone" aria-hidden="true">♙</span><span class="adm-nav-texto">Clientes</span></a>
+                    <a href="#entregadores" data-aba="entregadores"><span class="adm-nav-icone" aria-hidden="true">➤</span><span class="adm-nav-texto">Entregadores</span></a>
+                    <a href="#restaurantes" data-aba="restaurantes"><span class="adm-nav-icone" aria-hidden="true">▣</span><span class="adm-nav-texto">Aprovar restaurantes</span></a>
+                    <a href="#produtos" data-aba="produtos"><span class="adm-nav-icone" aria-hidden="true">◈</span><span class="adm-nav-texto">Produtos</span></a>
+                    <a href="#cupons" data-aba="cupons"><span class="adm-nav-icone" aria-hidden="true">◇</span><span class="adm-nav-texto">Cupons</span></a>
+                    <a href="#relatorios" data-aba="relatorios"><span class="adm-nav-icone" aria-hidden="true">▥</span><span class="adm-nav-texto">Relatórios</span></a>
+                    <a href="#permissoes" data-aba="permissoes"><span class="adm-nav-icone" aria-hidden="true">⚙</span><span class="adm-nav-texto">Permissões</span></a>
+                </nav>
+                <div class="adm-sidebar-rodape">
+                    <span class="adm-online-ponto"></span>
+                    <div>
+                        <strong>UAIcheguei</strong><small>Área administrativa</small>
+                    </div>
+                </div>
+                <a class="adm-sair" href="../index.html">← Voltar ao site</a>
+            </aside>
+            <div class="adm-main">
+                <div class="adm-topbar">
+                    <div>
+                        <span class="adm-eyebrow">CONTROLE GERAL · UAICHEGUEI</span>
+                        <h1>Painel do administrador geral</h1>
+                        <p>Controle geral da plataforma: restaurantes, clientes, entregadores, pedidos, produtos, cupons, relatórios e permissões.</p>
+                    </div>
+                    <div class="adm-avatar" aria-label="Administrador geral">
+                        AD
+                    </div>
+                </div>
+                <p class="uai-nota">Painel central de administração do UAIcheguei. Os indicadores exibidos são exemplos; a gestão de operações exige autenticação e permissões no servidor, além de banco de dados.</p>
+                <section class="adm-secao" id="dashboard">
+                    <div class="adm-secao-titulo">
+                        <div>
+                            <span>RESUMO</span>
+                            <h2>Visão geral</h2>
+                        </div>
+                    </div>
+                    <div id="estatisticas" class="uai-estatisticas">
+                        <div class="uai-card">
+                            <small>Pedidos</small> <strong>48</strong>
+                        </div>
+                        <div class="uai-card">
+                            <small>Restaurantes aprovados (exemplo)</small> <strong id="total-aprovados">6</strong>
+                        </div>
+                        <div class="uai-card">
+                            <small>Produtos em destaque</small> <strong>22</strong>
+                        </div>
+                        <div class="uai-card">
+                            <small>Faturamento</small> <strong>R$ 1.846,70</strong>
+                        </div>
+                    </div>
+                    <div class="adm-box">
+                        <h3>Pedidos recentes</h3>
+                        <table class="demo-tabela">
+                            <thead>
+                                <tr>
+                                    <th>Pedido</th>
+                                    <th>Cliente</th>
+                                    <th>Restaurante</th>
+                                    <th>Valor</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#1048</td>
+                                    <td>Ana Souza</td>
+                                    <td>Cantinho Mineiro</td>
+                                    <td>R$ 42,90</td>
+                                    <td>Em preparo</td>
+                                </tr>
+                                <tr>
+                                    <td>#1047</td>
+                                    <td>Bruno Lima</td>
+                                    <td>Pizzaria da Vila</td>
+                                    <td>R$ 58,90</td>
+                                    <td>Saiu para entrega</td>
+                                </tr>
+                                <tr>
+                                    <td>#1046</td>
+                                    <td>Camila Rocha</td>
+                                    <td>Estação do Hambúrguer</td>
+                                    <td>R$ 35,90</td>
+                                    <td>Entregue</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section class="adm-secao" id="pedidos">
+                    <div class="adm-secao-titulo">
+                        <div>
+                            <span>ATENDIMENTO</span>
+                            <h2>Gerenciar pedidos</h2>
+                        </div>
+                    </div>
+                    <div class="adm-box">
+                        <table class="demo-tabela">
+                            <thead>
+                                <tr>
+                                    <th>Número</th>
+                                    <th>Cliente</th>
+                                    <th>Itens</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#1048</td>
+                                    <td>Ana Souza</td>
+                                    <td>Feijão-tropeiro + suco</td>
+                                    <td>R$ 42,90</td>
+                                    <td>Em preparo</td>
+                                </tr>
+                                <tr>
+                                    <td>#1047</td>
+                                    <td>Bruno Lima</td>
+                                    <td>Pizza de calabresa</td>
+                                    <td>R$ 58,90</td>
+                                    <td>Saiu para entrega</td>
+                                </tr>
+                                <tr>
+                                    <td>#1046</td>
+                                    <td>Camila Rocha</td>
+                                    <td>Hambúrguer artesanal</td>
+                                    <td>R$ 35,90</td>
+                                    <td>Entregue</td>
+                                </tr>
+                                <tr>
+                                    <td>#1045</td>
+                                    <td>Lucas Martins</td>
+                                    <td>Açaí com frutas</td>
+                                    <td>R$ 23,90</td>
+                                    <td>Entregue</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="uai-nota">Pedidos e filtros apresentados como exemplos de interface; não representam operações reais.</p>
+                    </div>
+                </section>
+                <section class="adm-secao" id="clientes">
+                    <div class="adm-secao-titulo">
+                        <div>
+                            <span>CADASTROS</span>
+                            <h2>Clientes</h2>
+                        </div>
+                    </div>
+                    <div class="adm-box">
+                        <table class="demo-tabela">
+                            <thead>
+                                <tr>
+                                    <th>Cliente</th>
+                                    <th>Pedidos</th>
+                                    <th>Último pedido</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ana Souza</td>
+                                    <td>8</td>
+                                    <td>#1048</td>
+                                </tr>
+                                <tr>
+                                    <td>Bruno Lima</td>
+                                    <td>5</td>
+                                    <td>#1047</td>
+                                </tr>
+                                <tr>
+                                    <td>Camila Rocha</td>
+                                    <td>11</td>
+                                    <td>#1046</td>
+                                </tr>
+                                <tr>
+                                    <td>Lucas Martins</td>
+                                    <td>3</td>
+                                    <td>#1045</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section class="adm-secao" id="entregadores">
+                    <div class="adm-secao-titulo">
+                        <div>
+                            <span>EQUIPE DE ENTREGAS</span>
+                            <h2>Entregadores</h2>
+                        </div>
+                    </div>
+                    <div class="adm-box">
+                        <h3>Gestão de entregadores</h3>
+                        <p>Dados de referência para a organização de entregadores. Não representam cadastros ativos.</p>
+                        <div class="adm-tabela-rolagem">
+                            <table class="demo-tabela">
+                                <thead>
+                                    <tr>
+                                        <th>Entregador</th>
+                                        <th>Veículo</th>
+                                        <th>Entregas</th>
+                                        <th>Status</th>
+                                        <th>Ação</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="lista-entregadores">
+                                    <tr>
+                                        <td>Marcos Oliveira</td>
+                                        <td>Moto · Honda CG 160</td>
+                                        <td>18</td>
+                                        <td>Ativo</td>
+                                        <td>Somente consulta</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Juliana Pereira</td>
+                                        <td>Moto</td>
+                                        <td>12</td>
+                                        <td>Ativo</td>
+                                        <td>Somente consulta</td>
+                                    </tr>
+                                    <tr>
+                                        <td>André Costa</td>
+                                        <td>Bicicleta</td>
+                                        <td>5</td>
+                                        <td>Pendente</td>
+                                        <td>Somente consulta</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="adm-feedback" id="aviso-entregadores" role="status"></p>
+                    </div>
+                </section>
+                <section class="adm-secao" id="restaurantes">
+                    <div class="adm-secao-titulo">
+                        <div>
+                            <span>PARCEIROS</span>
+                            <h2>Restaurantes</h2>
+                        </div>
+                    </div>
+                    <div class="adm-box">
+                        <div class="adm-gerencia-topo">
+                            <div>
+                                <h3>Solicitações de restaurantes</h3>
+                                <p>Consulte solicitações e acompanhe as situações dos restaurantes. Ações de aprovação exigem sistema de dados.</p>
+                            </div>
+                            <span class="adm-demo-selo">Visão de controle</span>
+                        </div>
+                        <div class="adm-mini-indicadores">
+                            <div>
+                                <small>Pendentes</small><strong id="total-pendentes">0</strong>
+                            </div>
+                            <div>
+                                <small>Aprovados</small><strong id="total-restaurantes">0</strong>
+                            </div>
+                            <div>
+                                <small>Suspensos</small><strong id="total-suspensos">0</strong>
+                            </div>
+                        </div>
+                        <div class="adm-tabela-rolagem">
+                            <table class="demo-tabela adm-tabela-acoes">
+                                <thead>
+                                    <tr>
+                                        <th>Restaurante</th>
+                                        <th>Responsável (exemplo)</th>
+                                        <th>Categoria</th>
+                                        <th>Situação</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="lista-restaurantes">
+                                    <tr>
+                                        <td>Cantinho Mineiro</td>
+                                        <td>João Almeida</td>
+                                        <td>Comida mineira</td>
+                                        <td><span class="adm-status aprovado">Aprovado</span></td>
+                                        <td>Somente consulta</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pizzaria da Vila</td>
+                                        <td>Mariana Costa</td>
+                                        <td>Pizzas</td>
+                                        <td><span class="adm-status aprovado">Aprovado</span></td>
+                                        <td>Somente consulta</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Estação do Hambúrguer</td>
+                                        <td>Pedro Santos</td>
+                                        <td>Hambúrgueres</td>
+                                        <td><span class="adm-status aprovado">Aprovado</span></td>
+                                        <td>Somente consulta</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sabor da Massa</td>
+                                        <td>Laura Ferreira</td>
+                                        <td>Massas</td>
+                                        <td><span class="adm-status aprovado">Aprovado</span></td>
+                                        <td>Somente consulta</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Doce Trem</td>
+                                        <td>Carla Ribeiro</td>
+                                        <td>Doces</td>
+                                        <td><span class="adm-status aprovado">Aprovado</span></td>
+                                        <td>Somente consulta</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tempero da Casa</td>
+                                        <td>Rafael Lima</td>
+                                        <td>Comida mineira</td>
+                                        <td><span class="adm-status aprovado">Aprovado</span></td>
+                                        <td>Somente consulta</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sabor da Serra</td>
+                                        <td>Beatriz Martins</td>
+                                        <td>Quitandas</td>
+                                        <td><span class="adm-status pendente">Pendente</span></td>
+                                        <td>Somente consulta</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pizza do Bairro</td>
+                                        <td>Lucas Oliveira</td>
+                                        <td>Pizzas</td>
+                                        <td><span class="adm-status pendente">Pendente</span></td>
+                                        <td>Somente consulta</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="uai-nota">Solicitações e aprovações são apenas exemplos visuais. Para aprovar restaurantes de verdade, será necessário um sistema com servidor e banco de dados.</p>
+                        <p id="aviso-restaurantes" class="adm-feedback" role="status" aria-live="polite"></p>
+                    </div>
+                </section>
+                <section class="adm-secao" id="produtos">
+                    <div class="adm-secao-titulo">
+                        <div>
+                            <span>CATÁLOGO</span>
+                            <h2>Produtos</h2>
+                        </div>
+                    </div>
+                    <div class="adm-box">
+                        <p>X-Bacon especial · Pizza de calabresa · Massa especial · Bolo de chocolate · Hambúrguer artesanal · Pizza marguerita</p>
+                        <p class="uai-nota">Produtos do catálogo. O administrador geral pode supervisionar o catálogo, mas alterações reais dependem de um sistema conectado.</p>
+                    </div>
+                </section>
+                <section class="adm-secao" id="cupons">
+                    <div class="adm-secao-titulo">
+                        <div>
+                            <span>PROMOÇÕES</span>
+                            <h2>Cupons</h2>
+                        </div>
+                    </div>
+                    <div class="adm-box">
+                        <p><strong>UAI10</strong> — 10% de desconto</p>
+                        <p><strong>PRIMEIRACOMPRA</strong> — R$ 8,00 de desconto</p>
+                        <p class="uai-nota">Cadastro de usuários. Para adicionar registros é necessário implementar um sistema de dados.</p>
+                    </div>
+                </section>
+                <section class="adm-secao" id="relatorios">
+                    <div class="adm-secao-titulo">
+                        <div>
+                            <span>RESULTADOS</span>
+                            <h2>Relatórios</h2>
+                        </div>
+                    </div>
+                    <div class="adm-box" id="relatorios-admin">
+                        <div class="demo-metricas">
+                            <div>
+                                <small>Pedidos no mês</small><strong>48</strong>
+                            </div>
+                            <div>
+                                <small>Ticket médio</small><strong>R$ 38,47</strong>
+                            </div>
+                            <div>
+                                <small>Pedidos entregues</small><strong>39</strong>
+                            </div>
+                            <div>
+                                <small>Faturamento</small><strong>R$ 1.846,70</strong>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="adm-secao" id="permissoes">
+                    <div class="adm-secao-titulo">
+                        <div>
+                            <span>CONTROLE DE ACESSO</span>
+                            <h2>Permissões e usuários</h2>
+                        </div>
+                    </div>
+                    <div class="adm-box">
+                        <h3>Quem pode fazer o quê?</h3>
+                        <p>O administrador geral do UAIcheguei define as regras e supervisiona todos os perfis da plataforma. Esta matriz é ilustrativa: permissões reais exigem login seguro e verificação no servidor.</p>
+                        <div class="adm-tabela-rolagem">
+                            <table class="demo-tabela">
+                                <thead>
+                                    <tr>
+                                        <th>Recurso</th>
+                                        <th>Funcionário do aplicativo</th>
+                                        <th>Restaurante aprovado</th>
+                                        <th>Entregador</th>
+                                        <th>Cliente</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Aprovar ou suspender restaurantes</td>
+                                        <td>Equipe administrativa</td>
+                                        <td>Não</td>
+                                        <td>Não</td>
+                                        <td>Não</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gerenciar catálogo</td>
+                                        <td>Todos</td>
+                                        <td>Próprio catálogo</td>
+                                        <td>Não</td>
+                                        <td>Não</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Visualizar pedidos</td>
+                                        <td>Todos</td>
+                                        <td>Do restaurante</td>
+                                        <td>Da entrega</td>
+                                        <td>Próprios</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gerenciar usuários e cupons</td>
+                                        <td>Controle total</td>
+                                        <td>Não</td>
+                                        <td>Não</td>
+                                        <td>Não</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Consultar relatórios</td>
+                                        <td>Todos</td>
+                                        <td>Próprios</td>
+                                        <td>Próprios ganhos</td>
+                                        <td>Não</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="adm-box">
+                        <h3>Configurações do aplicativo</h3>
+                        <p class="uai-nota">As permissões são informativas nesta versão sem JavaScript.</p>
+                        <p id="aviso-config" class="adm-feedback" role="status"></p>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer class="rodape-uai">
+            <div class="rodape-conteudo">
+                <div class="rodape-marca">
+                    <span class="rodape-logo"><img src="../img/logo.png" alt="Logo UAIcheguei"><span>UAIcheguei</span> </span>
+                    <p>Comida boa, pertinho de você. O sabor de Minas chegando à sua casa!</p>
+                </div>
+                <div class="rodape-coluna">
+                    <h3>Explore</h3>
+                    <a href="../index.html#restaurantes">Categorias</a> 
+                </div>
+                <div class="rodape-coluna">
+                    <h3>Sua conta</h3>
+                    <a href="login.html">Entrar</a> <a href="cadastro.html">Criar conta</a> <a href="senha.html">Recuperar senha</a>
+                </div>
+                <div class="rodape-coluna">
+                    <h3>Uai, que delícia!</h3>
+                    <p>Seu cantinho para descobrir novos sabores e pedir suas comidas favoritas.</p>
+                </div>
+            </div>
+            <div class="rodape-final">
+                <span> 2026 UAIcheguei. Feito com carinho em Minas Gerais.</span> <a href="../index.html">Abrir site público</a>
+            </div>
+        </footer>
+    </body>
+</html>

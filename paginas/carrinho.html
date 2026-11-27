@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Meu carrinho | UAIcheguei</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../css/global/cliente-topo.css">
+        <link rel="stylesheet" href="../css/global/rodape.css">
+        <link rel="stylesheet" href="../css/global/responsivo.css">
+        <link rel="stylesheet" href="../css/global/logo-global.css">
+        <link rel="stylesheet" href="../css/global/header-cores.css">
+        <link rel="stylesheet" href="../css/paginas/carrinho-pedidos.css">
+        <link rel="stylesheet" href="../css/global/arte-mineira.css">
+        <link rel="stylesheet" href="../css/global/topo-mobile.css?v=2">
+    </head>
+    <body>
+        <header class="cliente-cabecalho">
+            <div class="cliente-topo">
+                <a class="cliente-marca" href="cliente.html"><img src="../img/logo.png" alt="Logo UAIcheguei"><span>UAIcheguei</span> </a>
+                <form class="cliente-busca" action="cliente.html" method="get">
+                    <label for="busca-cliente">⌕</label>
+                    <input id="busca-cliente" type="search" name="busca" placeholder="O que você quer comer hoje?">
+                </form>
+                <nav class="cliente-acoes" aria-label="Área do cliente">
+                    <a href="carrinho.html">Carrinho</a>
+                    <a href="conta.html">Minha conta</a>
+                </nav>
+            </div>
+            <nav class="cliente-menu" aria-label="Navegação principal">
+                <a href="categorias.html">Categorias</a>
+                <a href="ofertas.html">Ofertas</a>
+                <a href="restaurantes.html">Restaurantes</a>
+                <a href="pedidos.html">Meus pedidos</a>
+            </nav>
+        </header>
+        <main class="cp-pagina">
+            <div class="cp-trilha" aria-label="Localização">
+                Meu carrinho
+            </div>
+            <div class="cp-titulo">
+                <div>
+                    <span class="cp-sobretitulo">SEU PEDIDO</span>
+                    <h1>Meu carrinho</h1>
+                    <p>Confira os produtos escolhidos antes de continuar.</p>
+                </div>
+                <span class="cp-demo">Resumo do carrinho</span>
+            </div>
+            <div class="cp-layout">
+                <section class="cp-painel cp-itens">
+                    <div class="cp-cabecalho">
+                        <h2>Produtos do carrinho</h2>
+                        <span class="cp-contagem">2 itens</span>
+                    </div>
+                    <div class="cp-loja">
+                        <span class="cp-loja-icone">CM</span>
+                        <div>
+                            <strong>Cantinho Mineiro</strong><small>Comida mineira</small>
+                        </div>
+                    </div>
+                    <article class="cp-produto">
+                        <img src="../img/feijao-tropeiro.jpg" alt="Imagem ilustrativa de refeição">
+                        <div class="cp-produto-info">
+                            <h3>Feijão-tropeiro</h3>
+                            <p>1 unidade · Cantinho Mineiro</p>
+                            <span class="cp-quantidade">Quantidade: 1</span>
+                        </div>
+                        <strong class="cp-valor">R$ 28,90</strong>
+                    </article>
+                    <article class="cp-produto">
+                        <img src="../img/suco-de-laranja.jpg" alt="Imagem ilustrativa de suco">
+                        <div class="cp-produto-info">
+                            <h3>Suco natural</h3>
+                            <p>1 unidade · Cantinho Mineiro</p>
+                            <span class="cp-quantidade">Quantidade: 1</span>
+                        </div>
+                        <strong class="cp-valor">R$ 9,90</strong>
+                    </article>
+                    <a class="cp-adicionar" href="categorias.html">+ Adicionar mais produtos</a>
+                </section>
+                <aside class="cp-painel cp-resumo">
+                    <h2>Resumo do pedido</h2>
+                    <div class="cp-linha">
+                        <span>Subtotal (2 itens)</span><strong>R$ 38,80</strong>
+                    </div>
+                    <div class="cp-linha">
+                        <span>Taxa de entrega</span><strong>R$ 4,10</strong>
+                    </div>
+                    <div class="cp-divisor">
+                    </div>
+                    <div class="cp-linha cp-total">
+                        <span>Total</span><strong>R$ 42,90</strong>
+                    </div>
+                    <a class="cp-botao" href="pagamento.html">Continuar para pagamento <span>→</span></a>
+                    <div class="cp-info">
+                        <strong>Endereço de entrega</strong>
+                        <p>Rua das Flores, 120 · Centro, Uberlândia/MG</p>
+                    </div>
+                    <p class="cp-aviso">Pedido #1048. Nenhuma cobrança será realizada.</p>
+                </aside>
+            </div>
+        </main>
+        <footer class="rodape-uai">
+            <div class="rodape-conteudo rodape-compacto">
+                <div class="rodape-marca">
+                    <span class="rodape-logo"><img src="../img/logo.png" alt="Logo UAIcheguei"><span>UAIcheguei</span> </span>
+                    <p>Comida boa, pertinho de você. O sabor de Minas chegando à sua casa!</p>
+                </div>
+                <div class="rodape-coluna">
+                    <h3>Sua conta</h3>
+                    <a href="login.html">Entrar</a> <a href="cadastro.html">Criar conta</a> <a href="senha.html">Recuperar senha</a>
+                </div>
+                <div class="rodape-coluna">
+                    <h3>Uai, que delícia!</h3>
+                    <p>Seu cantinho para descobrir novos sabores e pedir suas comidas favoritas.</p>
+                </div>
+            </div>
+            <div class="rodape-final">
+                <span> 2026 UAIcheguei. Feito com carinho em Minas Gerais.</span> <a href="cliente.html">Ver página pública</a>
+            </div>
+        </footer>
+    </body>
+</html>

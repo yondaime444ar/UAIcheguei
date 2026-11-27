@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Explorar comidas no UAIcheguei.">
+        <title>Início do cliente | UAIcheguei</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../css/global/cliente-topo.css">
+        <link rel="stylesheet" href="../css/paginas/explorar_comidas.css">
+        <link rel="stylesheet" href="../css/global/rodape.css">
+        <link rel="stylesheet" href="../css/global/responsivo.css">
+        <link rel="stylesheet" href="../css/global/carrossel.css">
+        <link rel="stylesheet" href="../css/global/tema-escuro.css">
+        <link rel="stylesheet" href="../css/global/header-cores.css">
+        <link rel="stylesheet" href="../css/paginas/vitrine-ajustes.css">
+        <link rel="stylesheet" href="../css/global/logo-global.css">
+        <style>
+            .banner-sabor {
+            position: relative;
+            min-height: 405px;
+            margin: 25px 0 42px;
+            padding: 35px 28px;
+            display: grid;
+            grid-template-columns: 30% 40% 30%;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 28px;
+            background: linear-gradient(125deg,#ffb24d 0%,#ff8a19 46%,#ed5900 100%);
+            color: #fff;
+            isolation: isolate;
+            box-shadow: 0 16px 38px #c45a1528
+            }
+
+            .banner-sabor:before {
+            content: "";
+            position: absolute;
+            inset: -60px;
+            z-index: -1;
+            opacity: .5;
+            background: repeating-radial-gradient(ellipse at 5% 10%,transparent 0 18px,#ffda9b75 19px 21px,transparent 22px 42px);
+            transform: rotate(-10deg)
+            }
+
+            .banner-sabor:after {
+            content: "";
+            position: absolute;
+            right: -85px;
+            bottom: -180px;
+            width: 380px;
+            height: 380px;
+            border: 52px solid #ffd0796b;
+            border-radius: 50%;
+            z-index: -1
+            }
+
+            .banner-foto-esq {
+            width: min(100%,295px);
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 50%;
+            justify-self: center;
+            border: 11px solid #fff7e5;
+            box-shadow: 14px 20px 0 #b9440980,0 20px 36px #8132084d;
+            transform: rotate(-9deg);
+            z-index: 1
+            }
+
+            .banner-centro {
+            text-align: center;
+            z-index: 3;
+            padding: 0 4px
+            }
+
+            .banner-centro .banner-selo {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2.2px;
+            color: #fff;
+            background: #9b3609;
+            padding: 9px 14px;
+            border-radius: 30px;
+            transform: rotate(-3deg)
+            }
+
+            .banner-centro h1 {
+            font-size: clamp(43px,5.5vw,78px);
+            line-height: .91;
+            font-weight: 800;
+            letter-spacing: -2px;
+            color: #fff8e6;
+            margin: 22px 0 16px;
+            text-shadow: 5px 6px 0 #b83b04
+            }
+
+            .banner-centro p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #fff8ee;
+            max-width: 315px;
+            margin: 0 auto 20px;
+            font-weight: 500
+            }
+
+            .banner-botao {
+            display: inline-block;
+            background: #fff6e5;
+            color: #a53b0a;
+            padding: 14px 29px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: .6px;
+            border-radius: 8px;
+            box-shadow: 5px 6px 0 #a63a07;
+            transition: transform .2s
+            }
+
+            .banner-botao:hover {
+            transform: translateY(-3px);
+            background: #fff
+            }
+
+            .banner-direita {
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center
+            }
+
+            .banner-foto-dir {
+            width: min(100%,260px);
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 10px solid #fff7e5;
+            box-shadow: -12px 16px 0 #b9440970,0 18px 36px #8132084d;
+            transform: rotate(10deg) translateX(20px)
+            }
+
+            .banner-desconto {
+            position: absolute;
+            right: 4px;
+            top: -5px;
+            width: 105px;
+            height: 105px;
+            background: #fff4d8;
+            border: 5px dashed #f78c22;
+            border-radius: 50%;
+            color: #c54b08;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.05;
+            box-shadow: 0 8px 18px #8b300b45;
+            transform: rotate(12deg)
+            }
+
+            .banner-faixa {
+            position: absolute;
+            right: -25px;
+            bottom: 48px;
+            width: 145px;
+            height: 22px;
+            background: #ffdd75;
+            transform: rotate(-9deg);
+            box-shadow: 0 6px 0 #b84009
+            }
+
+            .banner-pontos {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff4dc;
+            letter-spacing: 7px;
+            font-size: 18px
+            }
+
+            .banner-estrela {
+            position: absolute;
+            color: #ffe0a0;
+            font-size: 40px;
+            line-height: 1;
+            z-index: 2;
+            text-shadow: 2px 3px #bb4307
+            }
+
+            .banner-estrela.um {
+            top: 22px;
+            left: 24px;
+            transform: rotate(-20deg)
+            }
+
+            .banner-estrela.dois {
+            bottom: 22px;
+            left: 35%;
+            font-size: 30px
+            }
+
+            .banner-estrela.tres {
+            top: 22%;
+            right: 32%;
+            font-size: 28px
+            }
+
+            @media(max-width:850px) {
+            .banner-sabor {
+            grid-template-columns: 27% 46% 27%;
+            min-height: 320px;
+            padding: 26px 15px
+            }
+            .banner-foto-esq {
+            width: 185px
+            }
+            .banner-foto-dir {
+            width: 170px
+            }
+            .banner-desconto {
+            width: 70px;
+            height: 70px;
+            font-size: 14px
+            }
+            .banner-centro h1 {
+            font-size: 46px
+            }
+            }
+
+            @media(max-width:600px) {
+            .banner-sabor {
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 28px 18px 42px
+            }
+            .banner-centro {
+            grid-column: 1/-1;
+            grid-row: 1
+            }
+            .banner-centro h1 {
+            font-size: 53px
+            }
+            .banner-foto-esq {
+            grid-column: 1;
+            grid-row: 2;
+            width: 145px
+            }
+            .banner-direita {
+            grid-column: 2;
+            grid-row: 2;
+            height: 165px
+            }
+            .banner-foto-dir {
+            width: 140px;
+            transform: rotate(10deg)
+            }
+            .banner-desconto {
+            right: -3px;
+            top: -15px;
+            width: 65px;
+            height: 65px;
+            font-size: 12px
+            }
+            .banner-faixa {
+            display: none
+            }
+            .banner-estrela.tres {
+            right: 10%;
+            top: 12%
+            }
+            }
+        </style>
+        <link rel="stylesheet" href="../css/global/arte-mineira.css">
+        <link rel="stylesheet" href="../css/global/topo-mobile.css?v=2">
+        <link rel="stylesheet" href="../css/paginas/acesso-funcional.css?v=1">
+    </head>
+    <body>
+        <header class="cliente-cabecalho">
+            <div class="cliente-topo">
+                <a class="cliente-marca" href="cliente.html"><img src="../img/logo.png" alt="Logo UAIcheguei"><span>UAIcheguei</span> </a>
+                <form class="cliente-busca" action="cliente.html" method="get">
+                    <label for="busca-cliente">⌕</label>
+                    <input id="busca-cliente" type="search" name="busca" placeholder="O que você quer comer hoje?">
+                </form>
+                <nav class="cliente-acoes" aria-label="Área do cliente">
+                    <a href="carrinho.html">Carrinho</a>
+                    <a href="conta.html">Minha conta</a>
+                </nav>
+            </div>
+            <nav class="cliente-menu" aria-label="Navegação principal">
+                <a href="categorias.html">Categorias</a>
+                <a href="ofertas.html">Ofertas</a>
+                <a href="restaurantes.html">Restaurantes</a>
+                <a href="pedidos.html">Meus pedidos</a>
+            </nav>
+        </header>
+        <main class="explorar-novo">
+            <section class="banner-sabor" aria-label="Destaque UAIcheguei">
+                <span class="banner-estrela um" aria-hidden="true">✦</span><span class="banner-estrela dois" aria-hidden="true">✳</span><span class="banner-estrela tres" aria-hidden="true">✦</span> <img class="banner-foto-esq" src="../img/hamburguer.jpg" alt="Hambúrguer artesanal">
+                <div class="banner-centro">
+                    <span class="banner-selo">SABOR DE VERDADE, UAI!</span>
+                    <h1>BATEU<br>A FOME?</h1>
+                    <p>Do lanche caprichado à comida mineira. Seu próximo pedido começa aqui!</p>
+                    <a class="banner-botao" href="categorias.html">VER CARDÁPIO →</a>
+                </div>
+                <div class="banner-direita">
+                    <img class="banner-foto-dir" src="../img/pizza-calabresa.jpg" alt="Pizza de calabresa"><span class="banner-desconto">OFERTAS<br>DO DIA</span> <span class="banner-faixa" aria-hidden="true"></span>
+                </div>
+                <span class="banner-pontos" aria-hidden="true">•••••</span>
+            </section>
+            <section class="secao">
+                <div class="cabeca-secao">
+                    <div>
+                        <span class="sobretitulo"> FAVORITOS DA CASA</span>
+                        <h2>Comidas em destaque</h2>
+                        <p>Algumas ideias para abrir o apetite.</p>
+                    </div>
+                    <a class="link-secao" href="ofertas.html">Ver ofertas →</a>
+                </div>
+                <div class="grade-cards grade-destaques-fixa">
+                    <article class="card-produto">
+                        <img src="../img/hamburguer.jpg" alt="Hambúrguer">
+                        <div class="card-corpo">
+                            <span class="mini-label">LANCHES</span>
+                            <h3>Hambúrguer especial</h3>
+                            <p>Uma opção caprichada para matar a fome.</p>
+                            <a href="ofertas.html">Conhecer ofertas →</a>
+                        </div>
+                    </article>
+                    <article class="card-produto">
+                        <img src="../img/pizza-marguerita.jpg" alt="Pizza">
+                        <div class="card-corpo">
+                            <span class="mini-label">PIZZAS</span>
+                            <h3>Pizza da casa</h3>
+                            <p>O sabor perfeito para compartilhar.</p>
+                            <a href="ofertas.html">Conhecer ofertas →</a>
+                        </div>
+                    </article>
+                    <article class="card-produto">
+                        <img src="../img/macarrao.jpg" alt="Macarrão">
+                        <div class="card-corpo">
+                            <span class="mini-label">MASSAS</span>
+                            <h3>Massa especial</h3>
+                            <p>Uma refeição para qualquer ocasião.</p>
+                            <a href="restaurantes.html">Ver restaurantes →</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <p class="aviso-demo">Descubra novos sabores e escolha seu próximo pedido.</p>
+        </main>
+        <footer class="rodape-uai">
+            <div class="rodape-conteudo rodape-compacto">
+                <div class="rodape-marca">
+                    <span class="rodape-logo"><img src="../img/logo.png" alt="Logo UAIcheguei"><span>UAIcheguei</span> </span>
+                    <p>Comida boa, pertinho de você. O sabor de Minas chegando à sua casa!</p>
+                </div>
+                <div class="rodape-coluna">
+                    <h3>Sua conta</h3>
+                    <a href="login.html">Entrar</a> <a href="cadastro.html">Criar conta</a> <a href="senha.html">Recuperar senha</a> <a href="login.html?logout=1">Sair</a>
+                </div>
+                <div class="rodape-coluna">
+                    <h3>Uai, que delícia!</h3>
+                    <p>Seu cantinho para descobrir novos sabores e pedir suas comidas favoritas.</p>
+                </div>
+            </div>
+            <div class="rodape-final">
+                <span> 2026 UAIcheguei. Feito com carinho em Minas Gerais.</span> <a href="../index.html">Ver página pública</a>
+            </div>
+        </footer>
+    </body>
+</html>
